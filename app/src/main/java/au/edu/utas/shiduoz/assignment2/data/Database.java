@@ -60,7 +60,7 @@ public class Database {
 
             // create property table
             Log.d(TAG, "DatabasesHelper onCreate");
-            //db.execSQL(PropertyTable.CREATE_STATEMENT);
+            db.execSQL(EntryTable.CREATE_STATEMENT);
 
 
 
@@ -73,10 +73,10 @@ public class Database {
         {
             Log.d(TAG, "DatabaseHelper onUpgrade");
             // drop table
-            //db.execSQL("DROP TABLE IF EXISTS " + PropertyTable.TABLE_NAME);
-            //onCreate(db);
+            db.execSQL("DROP TABLE IF EXISTS " + EntryTable.TABLE_NAME);
+            onCreate(db);
             Log.d(TAG, "DatabasesHelper onCreate");
-            //db.execSQL(PropertyTable.CREATE_STATEMENT);
+            db.execSQL(EntryTable.CREATE_STATEMENT);
             //onCreate(db);
 
             //--- ADD YOUR DROP TABLE FUNCTIONS HERE (migration logic not required for this unit)---

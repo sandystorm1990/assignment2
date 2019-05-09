@@ -1,5 +1,8 @@
 package au.edu.utas.shiduoz.assignment2.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Helper {
     /**
      * get week string by the number of week
@@ -57,5 +60,17 @@ public class Helper {
         }
 
         return  str;
+    }
+
+    /**
+     * get current date time string
+     *
+     * @return
+     */
+    public String getCurrentDateTime()
+    {
+        Date nowDate = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        return sdf.format(nowDate);
     }
 }
