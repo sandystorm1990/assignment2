@@ -11,7 +11,7 @@ import java.util.Date;
 import au.edu.utas.shiduoz.assignment2.models.Entry;
 
 public class EntryTable {
-    public static final String TABLE_NAME       = "mt_entry";
+    public static final String TABLE_NAME      = "mt_entry";
     public static final String KEY_ENTRY_ID    = "id";
     public static final String KEY_WEATHER     = "weather";
     public static final String KEY_MOOD        = "mood";

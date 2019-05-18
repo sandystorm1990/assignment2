@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
     <LinearLayout
         android:id="@+id/linearLayoutTop"
         android:layout_width="match_parent"
@@ -43,31 +48,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="395dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutBottom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutTop">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <ListView
-            android:id="@+id/entryList"
-            android:layout_width="match_parent"
-            android:layout_height="553dp" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayoutBottom"
         android:layout_width="0dp"
         android:layout_height="62dp"
@@ -82,9 +62,23 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/statTab"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/createTab"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/listTab"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="TextView" />
     </LinearLayout>

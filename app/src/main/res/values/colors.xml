@@ -3,4 +3,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="tabBg">#0A1E81</color>
+    <color name="tabBgPapped">#BFD0D6</color>
 </resources>
