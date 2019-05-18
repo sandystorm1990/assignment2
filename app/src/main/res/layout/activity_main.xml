@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
-
     <LinearLayout
         android:id="@+id/linearLayoutTop"
         android:layout_width="match_parent"
@@ -62,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/statTab"
+            android:id="@+id/listTab"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -76,11 +71,17 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/listTab"
+            android:id="@+id/statTab"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="TextView" />
+
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragmentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

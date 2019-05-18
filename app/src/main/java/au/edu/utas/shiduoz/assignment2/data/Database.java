@@ -59,8 +59,9 @@ public class Database {
             //db.execSQL("CREATE TABLE blah (blah integer)");
 
             // create property table
-            Log.d(TAG, "DatabasesHelper onCreate");
+
             db.execSQL(EntryTable.CREATE_STATEMENT);
+            Log.d(TAG, "DatabasesHelper onCreate");
 
 
 
