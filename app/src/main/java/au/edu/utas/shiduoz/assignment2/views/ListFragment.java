@@ -1,11 +1,9 @@
 package au.edu.utas.shiduoz.assignment2.views;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
@@ -24,7 +22,7 @@ import au.edu.utas.shiduoz.assignment2.R;
 public class ListFragment extends Fragment {
 
     int mYear, mMonth, mDay;
-    final int DATE_DIALOG = 1;
+
     TextView selectedDate;
     Button btn;
     final SpannableStringBuilder style = new SpannableStringBuilder();
@@ -34,8 +32,9 @@ public class ListFragment extends Fragment {
         //textView = getView().findViewById()
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {
         View inflateView = inflater.inflate(R.layout.fragment_list, container, false);
         textView = inflateView.findViewById(R.id.testText);
         textView.setText("This is the list fragment");
@@ -44,29 +43,19 @@ public class ListFragment extends Fragment {
         //date shown in home page
         selectedDate = (TextView) inflateView.findViewById(R.id.dateInput);
         btn = (Button) inflateView.findViewById(R.id.dateBtn);
-//        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
-//        final Date todayDate = new Date();
-//        String t = sdf.format(todayDate);
-//        //dateInput.setText(Html.fromHtml("<u>"+"Today, "+t+"</u>"));
-//        selectedDate.setText(new StringBuffer().append(t));
 
-        //date choice
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                showDialog(DATE_DIALOG);
-//            }
-//        });
+        // get current date
         final Calendar ca = Calendar.getInstance();
         mYear = ca.get(Calendar.YEAR);
         mMonth = ca.get(Calendar.MONTH);
         mDay = ca.get(Calendar.DAY_OF_MONTH);
+
         selectedDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                //showDialog(DATE_DIALOG);
 //                DialogFragment dateFragment = new SelectDateFragment();
 //                dateFragment.show(getFragmentManager(), "DatePicker");
+                // show date dialog
                 DatePickerDialog d = new DatePickerDialog(getActivity(), mdateListener, mYear, mMonth, mDay);
                 d.show();
             }
@@ -77,14 +66,9 @@ public class ListFragment extends Fragment {
         //return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-//    protected Dialog onCreateDialog(int id) {
-//        switch (id) {
-//            case DATE_DIALOG:
-//                return new DatePickerDialog(getActivity(), mdateListener, mYear, mMonth, mDay);
-//        }
-//        return null;
-//    }
-
+    /**
+     * display date
+     */
     public void display() {
         Date selectDate = new Date(mYear-1900, mMonth, mDay);
         final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");

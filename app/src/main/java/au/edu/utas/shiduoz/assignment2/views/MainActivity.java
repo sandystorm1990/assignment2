@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listTab.performClick();
 
         //
-        listTab = findViewById(R.id.listTab);
-        statTab = findViewById(R.id.statTab);
-        createTab = findViewById(R.id.createTab);
+//        listTab = findViewById(R.id.listTab);
+//        statTab = findViewById(R.id.statTab);
+//        createTab = findViewById(R.id.createTab);
     }
 
     @Override

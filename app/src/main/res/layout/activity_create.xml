@@ -46,7 +46,7 @@
             tools:layout_editor_absoluteX="8dp">
 
             <TextView
-                android:id="@+id/dateInput"
+                android:id="@+id/dateInputCreate"
                 android:layout_width="134dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2" />

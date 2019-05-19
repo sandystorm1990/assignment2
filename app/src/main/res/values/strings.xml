@@ -14,7 +14,9 @@
     <string name="addDetailBtn">Add Details</string>
     <string name="saveGoBtn">Save+Go</string>
     <string name="describeMood">Describe your mood</string>
+    <string name="describeDetail">Happening Activities</string>
     <string name="moodTerrible">Terrible</string>
     <string name="moodOk">O.K</string>
     <string name="moodGreat">Great</string>
+    <string name="backBtn">Back</string>
 </resources>

@@ -10,4 +10,5 @@
     <color name="transparent">#FFFFFF</color>
     <color name="addDetail">#B86D44</color>
     <color name="saveGo">#518B3E</color>
+    <color name="back">#F44336</color>
 </resources>
