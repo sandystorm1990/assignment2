@@ -81,13 +81,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setAllFalse();
                 Intent intent = new Intent(MainActivity.this, CreateActivity.class);
                 startActivity(intent);
-//                polyLinear.setSelected(true);
-//                if(fragmentPoly==null){
-//                    fragmentPoly=new FragmentTest("Polymer");
-//                    fragmentTransaction.add(R.id.fragment_frame,fragmentPoly);
-//                }else {
-//                    fragmentTransaction.show(fragmentPoly);
-//                }
                 break;
         }
         fragmentTransaction.commit();

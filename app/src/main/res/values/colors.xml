@@ -11,4 +11,6 @@
     <color name="addDetail">#B86D44</color>
     <color name="saveGo">#518B3E</color>
     <color name="back">#F44336</color>
+    <color name="moodLevelBg">#7D9BAD</color>
+    <color name="moodBg">#8EC789</color>
 </resources>

@@ -85,7 +85,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textTerrible"
+                android:id="@+id/moodLevel1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -94,14 +94,14 @@
                 android:text="@string/moodTerrible" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/moodLevel2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/icon_number_2" />
 
             <TextView
-                android:id="@+id/textOK"
+                android:id="@+id/moodLevel3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -110,14 +110,14 @@
                 android:text="@string/moodOk" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/moodLevel4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableTop="@mipmap/icon_number_4" />
 
             <TextView
-                android:id="@+id/textGreat"
+                android:id="@+id/moodLevel5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -139,7 +139,7 @@
                 android:paddingLeft="15dp">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/moodAngry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/icon_angry"
@@ -147,7 +147,7 @@
                     android:text="@string/moodAngry" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/moodSmile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/icon_happy"
@@ -155,7 +155,7 @@
                     android:text="@string/moodSmile" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/moodHappy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@mipmap/icon_smile"
@@ -166,7 +166,7 @@
                     android:id="@+id/textView17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@mipmap/icon_embassed"
+                    android:drawableLeft="@mipmap/icon_embarrassed"
                     android:gravity="center"
                     android:text="TextView" />
 
@@ -223,7 +223,7 @@
                     android:id="@+id/textView11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@mipmap/icon_confufsed"
+                    android:drawableLeft="@mipmap/icon_confused"
                     android:gravity="center"
                     android:text="TextView" />
 
