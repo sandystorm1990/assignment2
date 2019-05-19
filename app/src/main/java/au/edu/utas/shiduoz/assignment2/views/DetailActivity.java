@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 
 import au.edu.utas.shiduoz.assignment2.R;
@@ -76,7 +75,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.activityBtn:
                 setAllFalse();
                 activityBtn.setSelected(true);
-                Log.d("Fragment tab", "asdf");
+                //Log.d("Fragment tab", "asdf");
                 if (activityFragment==null){
                     activityFragment=new ActivityFragment();
                     fragmentTransaction.add(R.id.fragmentDetail, activityFragment);
@@ -87,7 +86,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.weatherBtn:
                 setAllFalse();
                 weatherBtn.setSelected(true);
-                Log.d("Fragment tab", "qqq");
+                //Log.d("Fragment tab", "qqq");
                 if(weatherFragment==null){
                     weatherFragment=new WeatherFragment();
                     fragmentTransaction.add(R.id.fragmentDetail, weatherFragment);

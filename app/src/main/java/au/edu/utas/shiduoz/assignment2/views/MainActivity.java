@@ -2,6 +2,7 @@ package au.edu.utas.shiduoz.assignment2.views;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         // connect to database
-        Database databaseConnection = new Database(this);
-        final SQLiteDatabase db = databaseConnection.open();
+//        Database databaseConnection = new Database(this);
+//        final SQLiteDatabase db = databaseConnection.open();
 
         listTab = findViewById(R.id.listTab);
         createTab = findViewById(R.id.createTab);
@@ -47,11 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         fragmentManager = getSupportFragmentManager();
         listTab.performClick();
-
-        //
-//        listTab = findViewById(R.id.listTab);
-//        statTab = findViewById(R.id.statTab);
-//        createTab = findViewById(R.id.createTab);
     }
 
     @Override
@@ -63,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.listTab:
                 setAllFalse();
                 listTab.setSelected(true);
+                //listTab.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
                 if (listFragment==null){
                     listFragment=new ListFragment();
                     fragmentTransaction.add(R.id.fragmentFrame, listFragment);

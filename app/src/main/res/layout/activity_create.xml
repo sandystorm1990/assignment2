@@ -6,41 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".views.CreateActivity">
 
-    <Button
+    <!--<TextView-->
+    <!--android:id="@+id/textView2"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="TextView" />-->
+
+    <TextView
         android:id="@+id/closeBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/closeBtn"
+        android:drawableTop="@mipmap/icon_close"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="229dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="@string/describeMood"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="385dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="524dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/closeBtn">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:gravity="center"
-            android:text="@string/describeMood"
-            android:textStyle="bold" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="59dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="8dp">
@@ -49,20 +65,23 @@
                 android:id="@+id/dateInputCreate"
                 android:layout_width="134dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:gravity="center"
+                android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/dateBtn"
+            <TextView
+                android:id="@+id/textView27"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Button" />
+                android:layout_weight="2"
+                android:drawableLeft="@mipmap/calender"
+                android:gravity="center" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="99dp"
+            android:layout_height="76dp"
             android:orientation="horizontal">
 
             <TextView
@@ -70,6 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableTop="@mipmap/icon_number_1"
+                android:gravity="center"
                 android:text="@string/moodTerrible" />
 
             <TextView
@@ -77,13 +98,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:drawableTop="@mipmap/icon_number_2" />
 
             <TextView
                 android:id="@+id/textOK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableTop="@mipmap/icon_number_3"
+                android:gravity="center"
                 android:text="@string/moodOk" />
 
             <TextView
@@ -91,67 +114,159 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:drawableTop="@mipmap/icon_number_4" />
 
             <TextView
                 android:id="@+id/textGreat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableTop="@mipmap/icon_number_5"
+                android:gravity="center"
                 android:text="@string/moodGreat" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="121dp"
+            android:layout_height="365dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="207dp"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical"
+                android:paddingLeft="15dp">
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_angry"
+                    android:gravity="center"
+                    android:text="@string/moodAngry" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_happy"
+                    android:gravity="center"
+                    android:text="@string/moodSmile" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_smile"
+                    android:gravity="center"
+                    android:text="@string/moodHappy" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_embassed"
+                    android:gravity="center"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/textView18"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_ill"
+                    android:gravity="center"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/textView21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_mad"
+                    android:gravity="center"
                     android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_secret"
+                    android:gravity="center"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_suspicious"
+                    android:gravity="center"
+                    android:text="TextView" />
+
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_marginRight="5dp"
+                android:orientation="vertical"
+                android:paddingLeft="15dp">
 
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_bored"
+                    android:gravity="center"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_confufsed"
+                    android:gravity="center"
                     android:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_crying"
+                    android:gravity="center"
                     android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_kissing"
+                    android:gravity="center"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_love"
+                    android:gravity="center"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_nerd"
+                    android:gravity="center"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_smart"
+                    android:gravity="center"
+                    android:text="TextView" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -159,12 +274,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="81dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -179,7 +294,8 @@
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@color/addDetail"
-            android:text="@string/addDetailBtn" />
+            android:text="@string/addDetailBtn"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/saveGoBtn"
@@ -189,7 +305,8 @@
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@color/saveGo"
-            android:text="@string/saveGoBtn" />
+            android:text="@string/saveGoBtn"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

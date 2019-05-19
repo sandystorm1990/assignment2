@@ -1,6 +1,7 @@
 package au.edu.utas.shiduoz.assignment2.views;
 
 import android.app.DatePickerDialog;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import au.edu.utas.shiduoz.assignment2.R;
+import au.edu.utas.shiduoz.assignment2.data.Database;
 
 public class ListFragment extends Fragment {
 
@@ -38,6 +40,10 @@ public class ListFragment extends Fragment {
         View inflateView = inflater.inflate(R.layout.fragment_list, container, false);
         textView = inflateView.findViewById(R.id.testText);
         textView.setText("This is the list fragment");
+
+        // connect to database
+        Database databaseConnection = new Database(getActivity());
+        final SQLiteDatabase db = databaseConnection.open();
 
         //datetime dialog
         //date shown in home page

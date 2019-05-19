@@ -19,8 +19,8 @@ import au.edu.utas.shiduoz.assignment2.R;
 
 public class CreateActivity extends AppCompatActivity {
 
-    Button closeBtn, addBtn, saveGoBtn;
-    TextView selectDate;
+    Button addBtn, saveGoBtn;
+    TextView selectDate, closeBtn;
     int mYear, mMonth, mDay;
     final int DATE_DIALOG = 1;
     final SpannableStringBuilder style = new SpannableStringBuilder();

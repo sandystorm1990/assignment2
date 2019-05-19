@@ -12,7 +12,7 @@
     <string name="statTab">Stat</string>
     <string name="closeBtn">Close</string>
     <string name="addDetailBtn">Add Details</string>
-    <string name="saveGoBtn">Save+Go</string>
+    <string name="saveGoBtn">Save &#038; Go</string>
     <string name="describeMood">Describe your mood</string>
     <string name="describeDetail">Happening Activities</string>
     <string name="moodTerrible">Terrible</string>
@@ -29,4 +29,11 @@
     <string name="descriptionBtn">Description</string>
     <string name="mediaBtn">Media</string>
     <string name="locationBtn">Location</string>
+
+    <!--mood-->
+    <string name="moodHappy">Happy</string>
+    <string name="moodSmile">Smile</string>
+    <string name="moodAngry">Angry</string>
+    <string name="moodBored">Bored</string>
+    <string name="moodConfused">Confused</string>
 </resources>
