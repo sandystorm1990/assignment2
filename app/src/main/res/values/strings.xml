@@ -2,9 +2,19 @@
     <string name="app_name">Mood Tracker</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <!--test-->
     <string name="hello_list_fragment">Hello list fragment</string>
     <string name="hello_stat_fragment">Hello stat fragment</string>
+    <!--end test-->
+
     <string name="listTab">Entries</string>
     <string name="createTab">Create</string>
     <string name="statTab">Stat</string>
+    <string name="closeBtn">Close</string>
+    <string name="addDetailBtn">Add Details</string>
+    <string name="saveGoBtn">Save+Go</string>
+    <string name="describeMood">Describe your mood</string>
+    <string name="moodTerrible">Terrible</string>
+    <string name="moodOk">O.K</string>
+    <string name="moodGreat">Great</string>
 </resources>
