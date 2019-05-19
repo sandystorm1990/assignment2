@@ -4,4 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_list_fragment">Hello list fragment</string>
     <string name="hello_stat_fragment">Hello stat fragment</string>
+    <string name="listTab">Entries</string>
+    <string name="createTab">Create</string>
+    <string name="statTab">Stat</string>
 </resources>
