@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -16,6 +17,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     //fragment
     Button activityBtn, descriptionBtn, locationBtn, mediaBtn, weatherBtn;
+
     private ActivityFragment activityFragment;
     private DescriptionFragment descriptionFragment;
     private LocationFragment locationFragment;
@@ -54,6 +56,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         locationBtn = findViewById(R.id.locationBtn);
         mediaBtn = findViewById(R.id.mediaBtn);
         weatherBtn = findViewById(R.id.weatherBtn);
+        activityBtn.setOnClickListener(this);
+        descriptionBtn.setOnClickListener(this);
+        locationBtn.setOnClickListener(this);
+        mediaBtn.setOnClickListener(this);
+        weatherBtn.setOnClickListener(this);
 
         fragmentManager = getSupportFragmentManager();
         activityBtn.performClick();
@@ -69,6 +76,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.activityBtn:
                 setAllFalse();
                 activityBtn.setSelected(true);
+                Log.d("Fragment tab", "asdf");
                 if (activityFragment==null){
                     activityFragment=new ActivityFragment();
                     fragmentTransaction.add(R.id.fragmentDetail, activityFragment);
@@ -79,6 +87,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.weatherBtn:
                 setAllFalse();
                 weatherBtn.setSelected(true);
+                Log.d("Fragment tab", "qqq");
                 if(weatherFragment==null){
                     weatherFragment=new WeatherFragment();
                     fragmentTransaction.add(R.id.fragmentDetail, weatherFragment);

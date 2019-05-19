@@ -19,4 +19,14 @@
     <string name="moodOk">O.K</string>
     <string name="moodGreat">Great</string>
     <string name="backBtn">Back</string>
+    <string name="dayBtn">Day</string>
+    <string name="weekBtn">Week</string>
+    <string name="monthBtn">Month</string>
+    <string name="yearBtn">Year</string>
+
+    <string name="activityBtn">Activities</string>
+    <string name="weatherBtn">Weather</string>
+    <string name="descriptionBtn">Description</string>
+    <string name="mediaBtn">Media</string>
+    <string name="locationBtn">Location</string>
 </resources>

@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import au.edu.utas.shiduoz.assignment2.R;
 
 public class ActivityFragment extends Fragment {
+    public ActivityFragment()
+    {}
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

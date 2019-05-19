@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import au.edu.utas.shiduoz.assignment2.R;
 
 public class LocationFragment extends Fragment {
+    public LocationFragment() {}
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
