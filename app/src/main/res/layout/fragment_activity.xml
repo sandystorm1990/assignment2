@@ -7,13 +7,13 @@
 
     <LinearLayout
         android:layout_width="384dp"
-        android:layout_height="253dp"
+        android:layout_height="322dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="294dp"
+        android:layout_marginBottom="124dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,22 +26,100 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/aReading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableStart="@mipmap/icon_reading"
+                android:drawableLeft="@mipmap/icon_reading"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aReading" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/aMeal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableLeft="@mipmap/icon_dinner"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aDinner"
+                android:drawableStart="@mipmap/icon_dinner" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/aDriving"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableLeft="@mipmap/icon_driving"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aDriving"
+                android:drawableStart="@mipmap/icon_driving" />
+
+            <TextView
+                android:id="@+id/aBathing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_bathing"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aBathing"
+                android:drawableStart="@mipmap/icon_bathing" />
+
+            <TextView
+                android:id="@+id/aDating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_dating"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aDating"
+                android:drawableStart="@mipmap/icon_dating" />
+
+            <TextView
+                android:id="@+id/aShopping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_shopping"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aShopping"
+                android:drawableStart="@mipmap/icon_shopping" />
+
+            <TextView
+                android:id="@+id/aSleeping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/icon_sleeping"
+                android:drawableLeft="@mipmap/icon_sleeping"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aSleeping" />
+
+            <TextView
+                android:id="@+id/aDrinking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_drinking"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aDrinking"
+                android:drawableStart="@mipmap/icon_drinking" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,22 +128,88 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/aGaming"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableStart="@mipmap/icon_gaming"
+                android:drawableLeft="@mipmap/icon_gaming"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aGaming" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/aMeeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableLeft="@mipmap/icon_meeting"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aMeeting"
+                android:drawableStart="@mipmap/icon_meeting" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/aMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableLeft="@mipmap/icon_movie"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aMovie"
+                android:drawableStart="@mipmap/icon_movie" />
+
+            <TextView
+                android:id="@+id/aMusic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/icon_music"
+                android:drawableLeft="@mipmap/icon_music"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aMusic" />
+
+            <TextView
+                android:id="@+id/aTea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_tea"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aTea"
+                android:drawableStart="@mipmap/icon_tea" />
+
+            <TextView
+                android:id="@+id/aWorking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_working"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aWorking"
+                android:drawableStart="@mipmap/icon_working" />
+
+            <TextView
+                android:id="@+id/aTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_tv"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/aTv"
+                android:drawableStart="@mipmap/icon_tv" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

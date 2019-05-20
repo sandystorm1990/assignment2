@@ -13,8 +13,8 @@
     <string name="closeBtn">Close</string>
     <string name="addDetailBtn">Add Details</string>
     <string name="saveGoBtn">Save &#038; Go</string>
-    <string name="describeMood">Describe your mood</string>
-    <string name="describeDetail">Happening Activities</string>
+    <string name="describeMood">What do you feel like ?</string>
+
     <string name="moodTerrible">Terrible</string>
     <string name="moodOk">O.K</string>
     <string name="moodGreat">Great</string>
@@ -29,6 +29,11 @@
     <string name="descriptionBtn">Description</string>
     <string name="mediaBtn">Media</string>
     <string name="locationBtn">Location</string>
+    <string name="activityDetail">What is happening ?</string>
+    <string name="weatherDetail">What about the weather ?</string>
+    <string name="desciptionDetail">What are you thinking ?</string>
+    <string name="mediaDetail">Highlights</string>
+    <string name="locationDetail">Where is it happening ?</string>
 
     <!--mood-->
     <string name="moodHappy">Happy</string>
@@ -46,4 +51,34 @@
     <string name="moodLove">Love</string>
     <string name="moodCrying">Crying</string>
     <string name="moodMad">Mad</string>
+
+    <string name="locationSearch">find your place</string>
+    <string name="descThinking">Thinking</string>
+
+    <!--activity-->
+    <string name="aDriving">Driving</string>
+    <string name="aSleeping">Sleeping</string>
+    <string name="aDrinking">Drinking</string>
+    <string name="aTv">TV</string>
+    <string name="aTea">Tea &#038; Coffee</string>
+    <string name="aBathing">Bathing</string>
+    <string name="aGaming">Gaming</string>
+    <string name="aShopping">Shopping</string>
+    <string name="aDinner">Dinner</string>
+    <string name="aMusic">Music</string>
+    <string name="aDating">Dating</string>
+    <string name="aMovie">Movie</string>
+    <string name="aMeeting">Meeting</string>
+    <string name="aWorking">Working</string>
+    <string name="aReading">Reading</string>
+
+    <!--weather-->
+    <string name="wSunny">Sunny</string>
+    <string name="wRainy">Rainy</string>
+    <string name="wThunder">Thunder</string>
+    <string name="wSnowy">Snowy</string>
+    <string name="wCloudy">Cloudy</string>
+    <string name="wSunnyCloudy">Sunny Cloudy</string>
+    <string name="wWindy">Windy</string>
+
 </resources>

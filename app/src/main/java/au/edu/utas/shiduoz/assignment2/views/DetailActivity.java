@@ -1,13 +1,14 @@
 package au.edu.utas.shiduoz.assignment2.views;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import au.edu.utas.shiduoz.assignment2.R;
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener{
@@ -23,6 +24,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private MediaFragment mediaFragment;
     private WeatherFragment weatherFragment;
     private FragmentManager fragmentManager;
+
+    TextView detailTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         mediaBtn.setOnClickListener(this);
         weatherBtn.setOnClickListener(this);
 
+        detailTitle = findViewById(R.id.detailTitle);
+
         fragmentManager = getSupportFragmentManager();
         activityBtn.performClick();
 
@@ -75,6 +80,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.activityBtn:
                 setAllFalse();
                 activityBtn.setSelected(true);
+                activityBtn.setBackgroundColor(getResources().getColor(R.color.detailBg));
+                activityBtn.setTextColor(Color.WHITE);
+                detailTitle.setText(getResources().getString(R.string.activityDetail));
                 //Log.d("Fragment tab", "asdf");
                 if (activityFragment==null){
                     activityFragment=new ActivityFragment();
@@ -86,6 +94,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.weatherBtn:
                 setAllFalse();
                 weatherBtn.setSelected(true);
+                weatherBtn.setBackgroundColor(getResources().getColor(R.color.detailBg));
+                weatherBtn.setTextColor(Color.WHITE);
+                detailTitle.setText(getResources().getString(R.string.weatherDetail));
                 //Log.d("Fragment tab", "qqq");
                 if(weatherFragment==null){
                     weatherFragment=new WeatherFragment();
@@ -97,6 +108,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.descriptionBtn:
                 setAllFalse();
                 descriptionBtn.setSelected(true);
+                descriptionBtn.setBackgroundColor(getResources().getColor(R.color.detailBg));
+                descriptionBtn.setTextColor(Color.WHITE);
+                detailTitle.setText(getResources().getString(R.string.desciptionDetail));
                 if(descriptionFragment==null){
                     descriptionFragment=new DescriptionFragment();
                     fragmentTransaction.add(R.id.fragmentDetail,descriptionFragment);
@@ -107,6 +121,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.mediaBtn:
                 setAllFalse();
                 mediaBtn.setSelected(true);
+                mediaBtn.setBackgroundColor(getResources().getColor(R.color.detailBg));
+                mediaBtn.setTextColor(Color.WHITE);
+                detailTitle.setText(getResources().getString(R.string.mediaDetail));
                 if(mediaFragment==null){
                     mediaFragment=new MediaFragment();
                     fragmentTransaction.add(R.id.fragmentDetail,mediaFragment);
@@ -117,6 +134,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.locationBtn:
                 setAllFalse();
                 locationBtn.setSelected(true);
+                locationBtn.setBackgroundColor(getResources().getColor(R.color.detailBg));
+                locationBtn.setTextColor(Color.WHITE);
+                detailTitle.setText(getResources().getString(R.string.locationDetail));
                 if(locationFragment==null){
                     locationFragment=new LocationFragment();
                     fragmentTransaction.add(R.id.fragmentDetail,locationFragment);
@@ -153,5 +173,17 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         descriptionBtn.setSelected(false);
         mediaBtn.setSelected(false);
         locationBtn.setSelected(false);
+        // setting color
+        activityBtn.setBackgroundColor(Color.TRANSPARENT);
+        weatherBtn.setBackgroundColor(Color.TRANSPARENT);
+        descriptionBtn.setBackgroundColor(Color.TRANSPARENT);
+        mediaBtn.setBackgroundColor(Color.TRANSPARENT);
+        locationBtn.setBackgroundColor(Color.TRANSPARENT);
+
+        activityBtn.setTextColor(Color.BLACK);
+        weatherBtn.setTextColor(Color.BLACK);
+        descriptionBtn.setTextColor(Color.BLACK);
+        mediaBtn.setTextColor(Color.BLACK);
+        locationBtn.setTextColor(Color.BLACK);
     }
 }

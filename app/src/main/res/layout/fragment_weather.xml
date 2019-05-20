@@ -18,22 +18,48 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/wCloudy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableStart="@mipmap/icon_cloudy"
+                android:drawableLeft="@mipmap/icon_cloudy"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/wCloudy" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/wRainy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableLeft="@mipmap/icon_rainy"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/wRainy"
+                android:drawableStart="@mipmap/icon_rainy" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/wSnowy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableLeft="@mipmap/icon_snowy"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/wSnowy"
+                android:drawableStart="@mipmap/icon_snowy" />
+
+            <TextView
+                android:id="@+id/wSunnyCoudy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/icon_sun_cloudy"
+                android:drawableLeft="@mipmap/icon_sun_cloudy"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/wSunnyCloudy" />
         </LinearLayout>
 
         <LinearLayout
@@ -42,22 +68,37 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/wSunny"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableStart="@mipmap/icon_sunny"
+                android:drawableLeft="@mipmap/icon_sunny"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/wSunny" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/wThunder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableLeft="@mipmap/icon_thunder"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/wThunder"
+                android:drawableStart="@mipmap/icon_thunder" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/wWindy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:drawableStart="@mipmap/icon_windy"
+                android:drawableLeft="@mipmap/icon_windy"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/wWindy" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

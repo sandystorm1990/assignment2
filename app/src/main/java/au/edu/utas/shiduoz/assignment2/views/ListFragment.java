@@ -25,8 +25,8 @@ public class ListFragment extends Fragment {
 
     int mYear, mMonth, mDay;
 
-    TextView selectedDate;
-    Button btn;
+    TextView selectedDate, dateInput;
+    //Button btn;
     final SpannableStringBuilder style = new SpannableStringBuilder();
 
     private TextView textView;
@@ -38,8 +38,8 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {
         View inflateView = inflater.inflate(R.layout.fragment_list, container, false);
-        textView = inflateView.findViewById(R.id.testText);
-        textView.setText("This is the list fragment");
+        //textView = inflateView.findViewById(R.id.testText);
+        //textView.setText("This is the list fragment");
 
         // connect to database
         Database databaseConnection = new Database(getActivity());
@@ -47,14 +47,22 @@ public class ListFragment extends Fragment {
 
         //datetime dialog
         //date shown in home page
-        selectedDate = (TextView) inflateView.findViewById(R.id.dateInput);
-        btn = (Button) inflateView.findViewById(R.id.dateBtn);
+        selectedDate = (TextView) inflateView.findViewById(R.id.dateSelect);
+        dateInput = inflateView.findViewById(R.id.dateInput);
+        //btn = (Button) inflateView.findViewById(R.id.dateBtn);
 
         // get current date
         final Calendar ca = Calendar.getInstance();
         mYear = ca.get(Calendar.YEAR);
         mMonth = ca.get(Calendar.MONTH);
         mDay = ca.get(Calendar.DAY_OF_MONTH);
+
+        Date selectDate = new Date();
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+        //Date selectDate = sdf.parse(mYear+"-"+mMonth+"-"+mDay);
+        String t2 = sdf.format(selectDate);
+        //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
+        dateInput.setText(new StringBuffer().append(t2));
 
         selectedDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +89,7 @@ public class ListFragment extends Fragment {
         //Date selectDate = sdf.parse(mYear+"-"+mMonth+"-"+mDay);
         String t2 = sdf.format(selectDate);
         //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
-        selectedDate.setText(new StringBuffer().append(t2));
+        dateInput.setText(new StringBuffer().append(t2));
 //        String str = mDay+"/"+mMonth+1+"/"+mYear;
 //        today.setText(Html.fromHtml(str));
     }

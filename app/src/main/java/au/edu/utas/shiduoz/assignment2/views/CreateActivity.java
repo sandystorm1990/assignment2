@@ -45,6 +45,13 @@ public class CreateActivity extends AppCompatActivity {
         mMonth = ca.get(Calendar.MONTH);
         mDay = ca.get(Calendar.DAY_OF_MONTH);
 
+        Date selectedDate = new Date();
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+        //Date selectDate = sdf.parse(mYear+"-"+mMonth+"-"+mDay);
+        String t2 = sdf.format(selectedDate);
+        //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
+        dateInputCreate.setText(new StringBuffer().append(t2));
+
         selectDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

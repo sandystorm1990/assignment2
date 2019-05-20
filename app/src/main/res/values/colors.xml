@@ -13,4 +13,7 @@
     <color name="back">#F44336</color>
     <color name="moodLevelBg">#7D9BAD</color>
     <color name="moodBg">#8EC789</color>
+    <color name="activityBg">#C8D6DA</color>
+    <color name="weatherBg">#C8D6DA</color>
+    <color name="detailBg">#4687E0</color>
 </resources>
