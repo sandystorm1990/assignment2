@@ -36,4 +36,14 @@
     <string name="moodAngry">Angry</string>
     <string name="moodBored">Bored</string>
     <string name="moodConfused">Confused</string>
+    <string name="moodEmbarrassed">Embarrassed</string>
+    <string name="moodIll">Ill</string>
+    <string name="moodSmart">Smart</string>
+    <string name="moodSecret">Secret</string>
+    <string name="moodNerd">Nerd</string>
+    <string name="moodSuspicious">Suspicious</string>
+    <string name="moodKissing">Kissing</string>
+    <string name="moodLove">Love</string>
+    <string name="moodCrying">Crying</string>
+    <string name="moodMad">Mad</string>
 </resources>
