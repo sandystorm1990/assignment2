@@ -1,5 +1,6 @@
 package au.edu.utas.shiduoz.assignment2.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -70,7 +71,7 @@ public class Helper {
     public String getCurrentDateTime()
     {
         Date nowDate = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
         return sdf.format(nowDate);
     }
 
@@ -88,5 +89,19 @@ public class Helper {
         final SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 
         return sdf.format(selectedDate);
+    }
+
+    //
+    public static Date strToDate(String str)
+    {
+        SimpleDateFormat format = new SimpleDateFormat("EEE, YYYY-MM-DD");
+        Date date = null;
+        try {
+            date = format.parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return  date;
     }
 }

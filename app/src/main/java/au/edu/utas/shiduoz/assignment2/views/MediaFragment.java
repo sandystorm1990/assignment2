@@ -49,7 +49,8 @@ public class MediaFragment extends Fragment {
         //edit
         Log.d("path", mCurrentPhotoPath.length()+"asdf");
         if (mCurrentPhotoPath.length() > 1) {
-            mImageView = mView.findViewById(R.id.imageView);
+
+            mImageView = mView.findViewById(R.id.itemMedia);
             setPic(mImageView, mCurrentPhotoPath);
         }
 
@@ -172,7 +173,7 @@ public class MediaFragment extends Fragment {
             //Bundle extras = data.getExtras();
             //Bitmap imageBitmap = (Bitmap) extras.get("data");
 
-            mImageView = mView.findViewById(R.id.imageView);
+            mImageView = mView.findViewById(R.id.itemMedia);
             setPic(mImageView, getmImagePath());
         }
     }

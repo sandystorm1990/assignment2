@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -21,6 +23,7 @@ import au.edu.utas.shiduoz.assignment2.R;
 import au.edu.utas.shiduoz.assignment2.data.Database;
 import au.edu.utas.shiduoz.assignment2.data.EntryTable;
 import au.edu.utas.shiduoz.assignment2.models.Entry;
+import au.edu.utas.shiduoz.assignment2.views.MainActivity;
 
 public class EntryAdapter extends ArrayAdapter<Entry> {
     private int mLayoutResourceID;
@@ -29,12 +32,14 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
     private SQLiteDatabase db;
 
     private TextView removeItem, shareItem;
+    AlertDialog.Builder builder;
 
     public EntryAdapter(Context context, int resource, List<Entry> objects)
     {
         super(context, resource, objects);
         this.mLayoutResourceID = resource;
         this.mContext = context;
+
     }
 
     @NonNull
@@ -44,6 +49,8 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         LayoutInflater layoutInflater =
                 (LayoutInflater)getContext().getSystemService(Service.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(mLayoutResourceID, parent, false);
+
+        builder = new AlertDialog.Builder(mContext);
 
         final Entry entry = this.getItem(position);
         //Log.d("zsd", android.R.id.text1+"");
@@ -55,23 +62,34 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         TextView itemLocation = row.findViewById(R.id.itemLocation);
         TextView itemDescription = row.findViewById(R.id.itemDesc);
         TextView itemActivity = row.findViewById(R.id.itemActivity);
+        ImageView itemMedia = row.findViewById(R.id.itemImage);
         itemDate.setText(entry.getmUpdate());
         //itemLevel.setText(entry.getmMoodLevel()+"");
         getMoodLevelIcon(itemLevel, entry.getmMoodLevel());
         itemMood.setText(entry.getmMood());
         getMoodIcon(itemMood, entry.getmMood());
-        itemWeather.setText(entry.getmWeather());
+
         String weather = entry.getmWeather();
         if (weather != null) {
+            itemWeather.setText(entry.getmWeather());
             getWeatherIcon(itemWeather, weather);
         }
-
-        itemLocation.setText(entry.getmLocation());
-        itemDescription.setText(entry.getmDescription());
+        String location = entry.getmLocation();
+        if (location != null) {
+            itemLocation.setText(entry.getmLocation());
+        }
+        String description = entry.getmDescription();
+        if (description != null) {
+            itemDescription.setText(entry.getmDescription());
+        }
         String activity = entry.getmActivity();
-        itemActivity.setText(activity);
         if (activity != null) {
+            itemActivity.setText(activity);
             getActivityIcon(itemActivity, activity);
+        }
+        String media = entry.getmMedia();
+        if (media != null) {
+            //itemMedia
         }
 
         removeItem = row.findViewById(R.id.itemRemove);
@@ -80,7 +98,7 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
             @Override
             public void onClick(View v) {
                 // popup dialog to warn
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                //AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
                 builder.setMessage("Are you sure to remove it?");
 
                 // cancel
@@ -96,11 +114,14 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
                     public void onClick(DialogInterface dialog, int which) {
                         Database databaseConnection = new Database(getContext());
                         db = databaseConnection.open();
-                        //EntryTable.remove(db, entry.getmId());
+                        EntryTable.remove(db, entry.getmId());
                         Log.d("zsd","remove"+entry.getmId());
+//                        Intent intent = new Intent(getContext(), MainActivity.class);
+//                        getContext().startActivity(intent);
                     }
                 });
                 builder.create().show();
+                //Log.d("zsd","remove"+entry.getmId());
             }
         });
         shareItem.setOnClickListener(new View.OnClickListener() {

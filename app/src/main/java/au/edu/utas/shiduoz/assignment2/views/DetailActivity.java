@@ -225,11 +225,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         entry.setmMood(selectedMood);
         entry.setmDate(selectedDate);
         entry.setmMoodLevel(moodLevel);
-        entry.setmActivity(activityFragment.getmActivity());
-        entry.setmWeather(weatherFragment.getmWeather());
-        entry.setmDescription(descriptionFragment.getmDescription());
-        entry.setmMedia(mediaFragment.getmImagePath());
-        entry.setmLocation(locationFragment.getmLocation());
+        entry.setmActivity(ActivityFragment.mActivity);
+        entry.setmWeather(WeatherFragment.mWeather);
+        entry.setmDescription(DescriptionFragment.mDescription);
+        entry.setmMedia(MediaFragment.mCurrentPhotoPath);
+        entry.setmLocation(LocationFragment.mLocation);
         if (entryId > 0) {
             entry.setmId(entryId);
             EntryTable.update(db, entry);

@@ -38,7 +38,7 @@ public class CreateActivity extends AppCompatActivity {
     public static String selectedMood="", selectedDate="";
     public static int selectedLevel=0;
 
-    private static int entryId = 0;
+    public static int entryId = 0;
 
     public static Entry mEntry;
 
@@ -71,8 +71,8 @@ public class CreateActivity extends AppCompatActivity {
         mMonth = ca.get(Calendar.MONTH);
         mDay = ca.get(Calendar.DAY_OF_MONTH);
 
-        Date date;
-        final SimpleDateFormat sdf = new SimpleDateFormat("EEE, YYYY-MM-dd");
+        Date date = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE, YYYY-MM-dd");
         String t2 = "";
         if (selectedDate.length() == 0) {
             date = new Date();
@@ -81,9 +81,11 @@ public class CreateActivity extends AppCompatActivity {
             dateInputCreate.setText(new StringBuffer().append(t2));
         } else {
             //date = new Date(selectedDate);
-            final SimpleDateFormat sdf1 = new SimpleDateFormat("YYYY-MM-dd");
+            SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
             try {
-                t2 = sdf.format(sdf1.parse(selectedDate));
+                date = sdf1.parse(selectedDate);
+                //Log.d("date","zz"+selectedDate);
+                t2 = sdf.format(date);
             } catch ( ParseException e) {
                 e.printStackTrace();
                 return;
@@ -91,7 +93,7 @@ public class CreateActivity extends AppCompatActivity {
         }
 
         //Date selectDate = sdf.parse(mYear+"-"+mMonth+"-"+mDay);
-        dateInputCreate.setText(new StringBuffer().append(t2));
+        //dateInputCreate.setText(new StringBuffer().append(t2));
         //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
         dateInputCreate.setText(new StringBuffer().append(t2));
         // format date
@@ -170,6 +172,21 @@ public class CreateActivity extends AppCompatActivity {
         selectedMood = entry.getmMood();
         selectedLevel = entry.getmMoodLevel();
         selectedDate = entry.getmDate();
+        if (entry.getmWeather() == null) {
+            mEntry.setmWeather("");
+        }
+        if (entry.getmMedia() == null) {
+            mEntry.setmMedia("");
+        }
+        if (entry.getmDescription() == null) {
+            mEntry.setmDescription("");
+        }
+        if (entry.getmLocation() == null) {
+            mEntry.setmLocation("");
+        }
+        if (entry.getmActivity() == null) {
+            mEntry.setmActivity("");
+        }
     }
 
     @Override

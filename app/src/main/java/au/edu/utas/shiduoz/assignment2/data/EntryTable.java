@@ -34,7 +34,7 @@ public class EntryTable {
             + KEY_WEATHER + " string default null , "
             //+ KEY_ACTIVITY + " string default null, "
             + KEY_DESCRIPTION + " text default null, "
-            + KEY_MEDIA + " string default not null default '', "
+            + KEY_MEDIA + " string default null, "
             + KEY_LOCATION + " string default null, "
             + KEY_DATE + " date, "
             + KEY_CREATE + " datetime, "

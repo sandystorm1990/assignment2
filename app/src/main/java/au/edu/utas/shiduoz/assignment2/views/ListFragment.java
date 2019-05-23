@@ -51,6 +51,8 @@ public class ListFragment extends Fragment {
     private String formatDate;
     private SQLiteDatabase db;
 
+    ArrayList<Entry> mEntries;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container, @NonNull Bundle savedInstanceState) {
@@ -76,7 +78,7 @@ public class ListFragment extends Fragment {
 
         Date selectDate = new Date();
         //final SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd/MM/YYYY");
-        final SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd, EEE");
+        final SimpleDateFormat sdf = new SimpleDateFormat("EEE, YYYY-MM-dd");
         //Date selectDate = sdf.parse(mYear+"-"+mMonth+"-"+mDay);
         String t2 = sdf.format(selectDate);
         //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
@@ -87,12 +89,19 @@ public class ListFragment extends Fragment {
         // connect to database
         Database databaseConnection = new Database(getActivity());
         db = databaseConnection.open();
-        final ArrayList<Entry> entries = EntryTable.selectByDate(db, formatDate);
+        mEntries = EntryTable.selectByDate(db, formatDate);
         //Log.d("zzz", formatDate);
         // have no entry
-        if (entries.size() == 0) {
+        if (mEntries.size() == 0) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setMessage("Do not have entry today?");
+            //cancel
+            builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
             // update
             builder.setPositiveButton("Go to Create", new DialogInterface.OnClickListener() {
                 @Override
@@ -103,19 +112,19 @@ public class ListFragment extends Fragment {
             });
             builder.create().show();
         }
-        for (Entry entry: entries
+        for (Entry entry: mEntries
         ) {
-            Log.d("zsd", entry.getmLocation()+"qweq");
+            Log.d("zsd", entry.getmMedia()+"qweq");
         }
         ListView entryList = inflateView.findViewById(R.id.entryList);
-        final EntryAdapter entryAdapter = new EntryAdapter(getActivity().getApplicationContext(), R.layout.list_item, entries);
+        final EntryAdapter entryAdapter = new EntryAdapter(getActivity(), R.layout.list_item, mEntries);
         entryList.setAdapter(entryAdapter);
 
         //item tapped
         entryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
-                final Entry entry = entries.get(i);
+                final Entry entry = mEntries.get(i);
 
                 Intent intent = new Intent(getActivity(), CreateActivity.class);
                 // pass data to edit
@@ -146,7 +155,7 @@ public class ListFragment extends Fragment {
      */
     public void display() {
         Date selectDate = new Date(mYear-1900, mMonth, mDay);
-        final SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd, EEE");
+        final SimpleDateFormat sdf = new SimpleDateFormat("EEE, YYYY-MM-dd");
         //Date selectDate = sdf.parse(mYear+"-"+mMonth+"-"+mDay);
         String t2 = sdf.format(selectDate);
         //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
@@ -157,9 +166,9 @@ public class ListFragment extends Fragment {
         formatDate = helper.formatDate(mYear, mMonth, mDay);
 
         //select entry by date
-        final ArrayList<Entry> entries = EntryTable.selectByDate(db, formatDate);
+        mEntries = EntryTable.selectByDate(db, formatDate);
         ListView entryList = mInflateView.findViewById(R.id.entryList);
-        final EntryAdapter entryAdapter = new EntryAdapter(getActivity().getApplicationContext(), R.layout.list_item, entries);
+        final EntryAdapter entryAdapter = new EntryAdapter(getActivity().getApplicationContext(), R.layout.list_item, mEntries);
         entryList.setAdapter(entryAdapter);
     }
 

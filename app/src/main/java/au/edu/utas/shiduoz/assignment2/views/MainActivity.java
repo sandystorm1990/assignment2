@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import au.edu.utas.shiduoz.assignment2.R;
 import au.edu.utas.shiduoz.assignment2.data.Database;
+import au.edu.utas.shiduoz.assignment2.models.Entry;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -80,6 +81,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.createTab:
                 setAllFalse();
                 Intent intent = new Intent(MainActivity.this, CreateActivity.class);
+                CreateActivity.mEntry = new Entry();
+                CreateActivity.entryId = 0;
+                CreateActivity.selectedMood = "";
+                CreateActivity.selectedLevel = 0;
+                CreateActivity.selectedDate = "";
                 startActivity(intent);
                 break;
         }
