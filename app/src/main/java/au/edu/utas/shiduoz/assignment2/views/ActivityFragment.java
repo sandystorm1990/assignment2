@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ public class ActivityFragment extends Fragment {
     TextView aReading, aDinner, aDriving, aBathing, aDating, aShopping, aSleeping, aDrinking,
             aGaming,aMeeting,aMovie,aMusic, aTea, aWorking, aTv;
 
-    public String activity = "";
+    public static String mActivity = "";
 
     public ActivityFragment()
     {}
@@ -44,9 +45,21 @@ public class ActivityFragment extends Fragment {
         aTv = inflateView.findViewById(R.id.aTv);
 
         selectItem();
+        performActivitySelected();
+        //Log.d("aaa-a", mActivity);
 
         return inflateView;
         //return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    public void setmActivity(String activity)
+    {
+        mActivity = activity;
+    }
+
+    public String getmActivity()
+    {
+        return mActivity;
     }
 
     private void selectItem() {
@@ -54,7 +67,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "reading";
+                setmActivity("reading");
                 aReading.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -62,7 +75,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "dinner";
+                setmActivity("dinner");
                 aDinner.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -70,7 +83,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "driving";
+                setmActivity("driving");
                 aDriving.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -78,7 +91,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "bathing";
+                setmActivity("bathing");
                 aBathing.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -86,7 +99,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "dating";
+                setmActivity("dating");
                 aDating.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -94,7 +107,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "shopping";
+                setmActivity("shopping");
                 aShopping.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -102,7 +115,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "drinking";
+                setmActivity("drinking");
                 aDrinking.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -110,7 +123,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "gaming";
+                setmActivity("gaming");
                 aGaming.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -118,7 +131,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "meeting";
+                setmActivity("meeting");
                 aMeeting.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -126,7 +139,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "movie";
+                setmActivity("movie");
                 aMovie.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -134,7 +147,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "music";
+                setmActivity("music");
                 aMusic.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -142,7 +155,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "tea";
+                setmActivity("tea");
                 aTea.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -150,7 +163,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "working";
+                setmActivity("working");
                 aWorking.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -158,7 +171,7 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                activity = "tv";
+                setmActivity("tv");
                 aTv.setBackgroundColor(getResources().getColor(R.color.activityBg));
             }
         });
@@ -180,5 +193,60 @@ public class ActivityFragment extends Fragment {
         aMusic.setBackgroundColor(Color.TRANSPARENT);
         aWorking.setBackgroundColor(Color.TRANSPARENT);
         aTv.setBackgroundColor(Color.TRANSPARENT);
+        aTea.setBackgroundColor(Color.TRANSPARENT);
+    }
+
+    private void performActivitySelected()
+    {
+        //clearSelection();
+        switch (mActivity) {
+            case "bathing":
+                aBathing.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "reading":
+                aReading.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "driving":
+                aDriving.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "dinner":
+                aDinner.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "dating":
+                aDating.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "shopping":
+                aShopping.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "working":
+                aWorking.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "meeting":
+                aMeeting.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "music":
+                aMusic.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "gaming":
+                aGaming.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "sleeping":
+                aSleeping.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "tea":
+                aTea.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "tv":
+                aTv.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "drinking":
+                aDrinking.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+            case "movie":
+                aMovie.setBackgroundColor(getResources().getColor(R.color.activityBg));
+                break;
+
+                default: break;
+        }
     }
 }

@@ -1,16 +1,22 @@
 package au.edu.utas.shiduoz.assignment2.views;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import au.edu.utas.shiduoz.assignment2.R;
+import au.edu.utas.shiduoz.assignment2.data.Database;
+import au.edu.utas.shiduoz.assignment2.data.EntryTable;
+import au.edu.utas.shiduoz.assignment2.models.Entry;
+
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button backBtn, saveGoBtn;
@@ -27,16 +33,37 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     TextView detailTitle;
 
+    private int entryId = 0, moodLevel = 0;
+    private String selectedMood, selectedDate;
+
+    //public static Entry mEntry;
+    private String selectedActivity, selectedDescrioption, selectedLocation, selectedMedia, selectedWeather;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        Intent intent = getIntent();
+        entryId = intent.getIntExtra("entryId", 0);
+        moodLevel = intent.getIntExtra("selectedLevel", 0);
+        selectedMood = intent.getStringExtra("selectedMood");
+        selectedDate = intent.getStringExtra("selectedDate");
+        if (entryId > 0) {
+            selectedActivity = intent.getStringExtra("selectedActivity");
+            selectedDescrioption = intent.getStringExtra("selectedDescription");
+            selectedMedia = intent.getStringExtra("selectedMedia");
+            selectedLocation = intent.getStringExtra("selectedLocation");
+            selectedWeather = intent.getStringExtra("selectedWeather");
+            performInitData();
+        }
 
         // back action
         backBtn = findViewById(R.id.backBtn);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                performInitData();
                 Intent intent = new Intent(DetailActivity.this, CreateActivity.class);
                 startActivity(intent);
             }
@@ -47,7 +74,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         saveGoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // save or create operation
                 Intent intent = new Intent(DetailActivity.this, MainActivity.class);
+                createOrUpdateEntry();
                 startActivity(intent);
             }
         });
@@ -185,5 +214,48 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         descriptionBtn.setTextColor(Color.BLACK);
         mediaBtn.setTextColor(Color.BLACK);
         locationBtn.setTextColor(Color.BLACK);
+    }
+
+    //
+    private void createOrUpdateEntry()
+    {
+        Database databaseConnection = new Database(this);
+        final SQLiteDatabase db = databaseConnection.open();
+        Entry entry = new Entry();
+        entry.setmMood(selectedMood);
+        entry.setmDate(selectedDate);
+        entry.setmMoodLevel(moodLevel);
+        entry.setmActivity(activityFragment.getmActivity());
+        entry.setmWeather(weatherFragment.getmWeather());
+        entry.setmDescription(descriptionFragment.getmDescription());
+        entry.setmMedia(mediaFragment.getmImagePath());
+        entry.setmLocation(locationFragment.getmLocation());
+        if (entryId > 0) {
+            entry.setmId(entryId);
+            EntryTable.update(db, entry);
+        } else {
+            EntryTable.insert(db, entry);
+        }
+    }
+
+    //
+    private void performInitData()
+    {
+//        activityFragment.setmActivity(selectedActivity);
+//        weatherFragment.setmWeather(selectedWeather);
+//        descriptionFragment.setmDescription(selectedDescrioption);
+//        mediaFragment.setmImagePath(selectedMedia);
+//        locationFragment.setmLocation(selectedLocation);
+        ActivityFragment.mActivity = selectedActivity;
+        WeatherFragment.mWeather = selectedWeather;
+        DescriptionFragment.mDescription = selectedDescrioption;
+        MediaFragment.mCurrentPhotoPath = selectedMedia;
+        LocationFragment.mLocation = selectedLocation;
+
+//        Log.d("aaaa", selectedActivity);
+//        Log.d("aaaw", selectedWeather);
+//        Log.d("aaad", selectedDescrioption);
+//        Log.d("aaam", selectedMedia);
+//        Log.d("aaal", selectedLocation);
     }
 }

@@ -73,4 +73,20 @@ public class Helper {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         return sdf.format(nowDate);
     }
+
+    /**
+     * format date
+     *
+     * @param year
+     * @param month
+     * @param day
+     * @return
+     */
+    public String formatDate(int year, int month, int day)
+    {
+        Date selectedDate = new Date(year-1900, month, day);
+        final SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+
+        return sdf.format(selectedDate);
+    }
 }

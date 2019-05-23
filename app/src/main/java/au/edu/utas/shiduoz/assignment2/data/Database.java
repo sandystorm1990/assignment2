@@ -12,7 +12,7 @@ public class Database {
     private static final String DATABASE_NAME = "db_mood_tracker";
 
     //The version of the database. Increment this whenever you change the /structure/ of the database
-    private static final int   DATABASE_VERSION   = 1;
+    private static final int   DATABASE_VERSION   = 4;
 
     //The connection to the database itself
     private SQLiteDatabase mDb;
@@ -77,7 +77,7 @@ public class Database {
             db.execSQL("DROP TABLE IF EXISTS " + EntryTable.TABLE_NAME);
             onCreate(db);
             Log.d(TAG, "DatabasesHelper onCreate");
-            db.execSQL(EntryTable.CREATE_STATEMENT);
+            //db.execSQL(EntryTable.CREATE_STATEMENT);
             //onCreate(db);
 
             //--- ADD YOUR DROP TABLE FUNCTIONS HERE (migration logic not required for this unit)---

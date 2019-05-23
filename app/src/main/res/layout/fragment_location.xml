@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="411dp"
+        android:layout_height="354dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
@@ -20,19 +20,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/locationFilter"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autofillHints=""
-            android:drawableLeft="@mipmap/icon_search"
-            android:ems="10"
-            android:gravity="top"
-            android:hint="@string/locationSearch"
-            android:inputType="text"
-            android:singleLine="true"
-            android:textColorLink="@color/transparent" />
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/locationFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:autofillHints=""
+                android:drawableLeft="@mipmap/icon_search"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="@string/locationSearch"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColorLink="@color/transparent" />
+
+            <Button
+                android:id="@+id/locationConfirmBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Confirm"
+                android:textAllCaps="false" />
+        </LinearLayout>
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"

@@ -16,7 +16,7 @@ public class WeatherFragment extends Fragment {
 
     TextView wCloudy, wRainy, wSnowy, wSunny, wThunder, wSunnyCloudy, wWindy;
 
-    public String weather = "";
+    public static String mWeather = "";
     public WeatherFragment() {}
 
     @Nullable
@@ -33,9 +33,20 @@ public class WeatherFragment extends Fragment {
         wWindy = inflateView.findViewById(R.id.wWindy);
 
         selectWeather();
+        performWeatherSelected();
 
         return inflateView;
         //return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    public void setmWeather(String weather)
+    {
+        mWeather = weather;
+    }
+
+    public String getmWeather()
+    {
+        return  mWeather;
     }
 
     private void selectWeather() {
@@ -43,7 +54,7 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                weather = "cloudy";
+                setmWeather("cloudy");
                 wCloudy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
             }
         });
@@ -51,7 +62,7 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                weather = "rainy";
+                setmWeather("rainy");
                 wRainy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
             }
         });
@@ -59,7 +70,7 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                weather = "snowy";
+                setmWeather("snowy");
                 wSnowy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
             }
         });
@@ -67,7 +78,7 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                weather = "sunny";
+                setmWeather("sunny");
                 wSunny.setBackgroundColor(getResources().getColor(R.color.weatherBg));
             }
         });
@@ -75,7 +86,7 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                weather = "sunny cloudy";
+                setmWeather("sunnyCloudy");
                 wSunnyCloudy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
             }
         });
@@ -83,7 +94,7 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                weather = "thunder";
+                setmWeather("thunder");
                 wThunder.setBackgroundColor(getResources().getColor(R.color.weatherBg));
             }
         });
@@ -91,7 +102,7 @@ public class WeatherFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clearSelection();
-                weather = "windy";
+                setmWeather("windy");
                 wWindy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
             }
         });
@@ -105,5 +116,34 @@ public class WeatherFragment extends Fragment {
         wThunder.setBackgroundColor(Color.TRANSPARENT);
         wSunnyCloudy.setBackgroundColor(Color.TRANSPARENT);
         wWindy.setBackgroundColor(Color.TRANSPARENT);
+    }
+
+    private void performWeatherSelected()
+    {
+        switch (mWeather) {
+            case "sunny":
+                wSunny.setBackgroundColor(getResources().getColor(R.color.weatherBg));
+                break;
+            case "windy":
+                wWindy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
+                break;
+            case "thunder":
+                wThunder.setBackgroundColor(getResources().getColor(R.color.weatherBg));
+                break;
+            case "rainy":
+                wRainy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
+                break;
+            case "snowy":
+                wSnowy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
+                break;
+            case "sunnyCloudy":
+                wSunnyCloudy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
+                break;
+            case "cloudy":
+                wCloudy.setBackgroundColor(getResources().getColor(R.color.weatherBg));
+                break;
+
+                default: break;
+        }
     }
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <!--<color name="colorPrimary">#008577</color>-->
+    <!--<color name="colorPrimaryDark">#00574B</color>-->
+    <color name="colorPrimary">#3571A6</color>
+    <color name="colorPrimaryDark">#054C83</color>
     <color name="colorAccent">#D81B60</color>
     <color name="tabBg">#0A1E81</color>
     <color name="tabBgPapped">#BFD0D6</color>

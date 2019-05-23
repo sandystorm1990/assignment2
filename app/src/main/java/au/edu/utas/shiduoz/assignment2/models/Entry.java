@@ -1,8 +1,8 @@
 package au.edu.utas.shiduoz.assignment2.models;
 
 public class Entry {
-    private int mId;
-    private String mMood, mWeather, mActivity, mDescription, mLocation, mMedia, mCreate, mUpdate;
+    private int mId, mLevel;
+    private String mMood, mWeather, mActivity, mDescription, mLocation, mMedia, mCreate, mUpdate, mDate;
 
     public void setmId(int id)
     {
@@ -11,6 +11,10 @@ public class Entry {
     public void setmMood(String mood)
     {
         this.mMood = mood;
+    }
+    public void setmMoodLevel(int level)
+    {
+        this.mLevel = level;
     }
     public void setmWeather(String weather)
     {
@@ -32,6 +36,10 @@ public class Entry {
     {
         this.mDescription = description;
     }
+    public void setmDate(String date)
+    {
+        this.mDate = date;
+    }
     public void setmCreate(String create)
     {
         this.mCreate =create;
@@ -49,6 +57,10 @@ public class Entry {
     public String getmMood()
     {
         return this.mMood;
+    }
+    public int getmMoodLevel()
+    {
+        return this.mLevel;
     }
     public String getmWeather()
     {
@@ -69,6 +81,10 @@ public class Entry {
     public String getmDescription()
     {
         return this.mDescription;
+    }
+    public String getmDate()
+    {
+        return this.mDate;
     }
     public String getmCreate()
     {
