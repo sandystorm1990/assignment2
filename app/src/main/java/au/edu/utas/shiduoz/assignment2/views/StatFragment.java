@@ -60,14 +60,13 @@ public class StatFragment extends Fragment {
     private List<Line> lines;
     private Line line;
     private LineChartData lineChartData;
-    private List<PointValue> points;
-    private Axis axisX = new Axis(),axisY = new Axis();
+    private Axis axisX,axisY;
     Database dbConn;
     SQLiteDatabase db;
     ArrayList<Entry> mEntries;
 
-    ArrayList<AxisValue> axisValuesX = new ArrayList<AxisValue>();
-    ArrayList<AxisValue> axisValuesY = new ArrayList<AxisValue>();
+    ArrayList<AxisValue> axisValuesX;
+    ArrayList<AxisValue> axisValuesY;
 
     TextView statRange;
 
@@ -108,7 +107,11 @@ public class StatFragment extends Fragment {
         // define a line
         lines = new ArrayList<>();
         // define point data
-        points = new ArrayList<PointValue>();
+        List<PointValue> points = new ArrayList<PointValue>();
+        axisX = new Axis();
+        axisY = new Axis();
+        axisValuesX = new ArrayList<AxisValue>();
+        axisValuesY = new ArrayList<AxisValue>();
 
         int count = 0;
         points.add(new PointValue(0, 0));
