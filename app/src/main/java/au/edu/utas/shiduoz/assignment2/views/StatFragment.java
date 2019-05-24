@@ -26,6 +26,7 @@ import au.edu.utas.shiduoz.assignment2.utils.Helper;
 
 /*
  * HelloCharts
+ *
  * Copyright 2014 Leszek Wach
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
