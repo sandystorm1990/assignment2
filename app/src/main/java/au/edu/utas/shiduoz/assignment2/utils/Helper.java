@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Helper {
@@ -204,5 +205,44 @@ public class Helper {
         Bitmap bitmap = BitmapFactory.decodeFile(path, bmOptions);
 
         return bitmap;
+    }
+
+    //
+    public static String calFromDate(String range)
+    {
+        String fromDate = "";
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");;
+        try {
+            switch (range) {
+                case "day":
+                    date = new Date();
+                    fromDate = sdf.format(date);
+                    break;
+                case "week":
+                    Calendar ca = Calendar.getInstance();
+                    ca.setTime(sdf.parse(sdf.format(date)));
+                    int dayWeek = ca.get(Calendar.DAY_OF_WEEK)-1;
+                    if (0 == dayWeek) {
+                        dayWeek = 7;
+                    }
+                    ca.add(Calendar.DATE, -dayWeek+1);
+                    fromDate = sdf.format(ca.getTime());
+                    break;
+                case "month":
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM");
+                    fromDate = sdf1.format(date)+"-01";
+                    break;
+                case "year":
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy");
+                    fromDate = sdf2.format(date)+"-01-01";
+                    break;
+                default:break;
+            }
+
+            return fromDate;
+        } catch (ParseException e) {
+            return fromDate;
+        }
     }
 }

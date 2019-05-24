@@ -18,4 +18,5 @@
     <color name="activityBg">#C8D6DA</color>
     <color name="weatherBg">#C8D6DA</color>
     <color name="detailBg">#4687E0</color>
+    <color name="statBg">#AFFD94</color>
 </resources>

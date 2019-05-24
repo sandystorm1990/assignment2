@@ -182,10 +182,40 @@ public class EntryTable {
         db.update(TABLE_NAME, values, KEY_ENTRY_ID+ "= ?", new String[] {""+entry.getmId()});
     }
 
-    //
+    /**
+     * remove a row
+     *
+     * @param db
+     * @param id
+     */
     public static void remove (SQLiteDatabase db, int id)
     {
         //String[] args = {String.valueOf(id)};
         db.delete(TABLE_NAME, KEY_ENTRY_ID+"=?", new String[]{id+""});
+    }
+
+    /**
+     * select entries by a specific range
+     *
+     *
+     * @param db
+     * @param fromDate
+     * @param toDate
+     * @return
+     */
+    public static ArrayList<Entry> selectByRange(SQLiteDatabase db, String fromDate, String toDate)
+    {
+        ArrayList<Entry> results = new ArrayList<Entry>();
+        Cursor c = db.query(TABLE_NAME, null, KEY_DATE+" BETWEEN '"+fromDate+"' AND '"+toDate+"'", null, null, null, null);
+        if (c != null) {
+            c.moveToFirst();
+            while (!c.isAfterLast()) {
+                Entry entry = createFromCursor(c);
+                results.add(entry);
+                c.moveToNext();
+            }
+        }
+
+        return  results;
     }
 }
