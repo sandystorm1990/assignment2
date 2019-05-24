@@ -1,5 +1,12 @@
 package au.edu.utas.shiduoz.assignment2.utils;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -83,7 +90,7 @@ public class Helper {
      * @param day
      * @return
      */
-    public String formatDate(int year, int month, int day)
+    public static String formatDate(int year, int month, int day)
     {
         Date selectedDate = new Date(year-1900, month, day);
         final SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
@@ -103,5 +110,99 @@ public class Helper {
         }
 
         return  date;
+    }
+
+    /**
+     * show image
+     *
+     * @param myImageView
+     * @param path
+     */
+    public static void setPic(ImageView myImageView, String path)
+    {
+        // Get the dimensions of the View
+//        int targetW = myImageView.getWidth();
+//        int targetH = myImageView.getHeight();
+
+        // Get the dimensions of the bitmap
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        // Determine how much to scale down the image
+        int scaleFactor = 1;//Math.min(photoW/targetW, photoH/targetH);
+
+        // Decode the image file into a Bitmap sized to fill the View
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true;
+
+        Bitmap bitmap = BitmapFactory.decodeFile(path, bmOptions);
+        myImageView.setImageBitmap(bitmap);
+    }
+
+    /**
+     * show image
+     *
+     * @param myImageView
+     * @param path
+     */
+    public static void showPic(LinearLayout ll, ImageView myImageView, String path)
+    {
+        // Get the dimensions of the bitmap
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+        Log.d("photoH", photoH+"");
+        Log.d("photoW", photoW+"");
+        //myImageView.setMinimumHeight(photoH);
+        //myImageView.setMinimumWidth(photoW);
+        ViewGroup.LayoutParams llParams = ll.getLayoutParams();
+        llParams.height += photoH;
+        ll.setLayoutParams(llParams);
+        ViewGroup.LayoutParams params = myImageView.getLayoutParams();
+        params.height = photoH;
+        params.width = photoW;
+        myImageView.setLayoutParams(params);
+        // Get the dimensions of the View
+        int targetW = 1;//myImageView.getWidth();
+        int targetH = 1;//myImageView.getHeight();
+
+        // Determine how much to scale down the image
+        int scaleFactor = 1;//Math.min(photoW/targetW, photoH/targetH);
+
+        // Decode the image file into a Bitmap sized to fill the View
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true;
+
+        Bitmap bitmap = BitmapFactory.decodeFile(path, bmOptions);
+        myImageView.setImageBitmap(bitmap);
+    }
+
+    /**
+     *
+     * @param path
+     * @return
+     */
+    public static Bitmap uriConvertToBitmap(String path)
+    {
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = 1;
+        bmOptions.inPurgeable = true;
+
+        Bitmap bitmap = BitmapFactory.decodeFile(path, bmOptions);
+
+        return bitmap;
     }
 }

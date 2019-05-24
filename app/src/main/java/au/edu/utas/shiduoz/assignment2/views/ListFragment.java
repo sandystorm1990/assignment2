@@ -62,8 +62,6 @@ public class ListFragment extends Fragment {
         //textView = inflateView.findViewById(R.id.testText);
         //textView.setText("This is the list fragment");
 
-
-
         //datetime dialog
         //date shown in home page
         selectedDate = (TextView) inflateView.findViewById(R.id.dateSelect);
@@ -83,8 +81,7 @@ public class ListFragment extends Fragment {
         String t2 = sdf.format(selectDate);
         //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
         dateInput.setText(new StringBuffer().append(t2));
-        Helper helper = new Helper();
-        formatDate = helper.formatDate(mYear, mMonth, mDay);
+        formatDate = Helper.formatDate(mYear, mMonth, mDay);
 
         // connect to database
         Database databaseConnection = new Database(getActivity());
@@ -111,6 +108,8 @@ public class ListFragment extends Fragment {
                 }
             });
             builder.create().show();
+            //builder.getContext().getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE);
+            //builder.getContext().getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
         }
         for (Entry entry: mEntries
         ) {
@@ -162,13 +161,13 @@ public class ListFragment extends Fragment {
         dateInput.setText(new StringBuffer().append(t2));
 //        String str = mDay+"/"+mMonth+1+"/"+mYear;
 //        today.setText(Html.fromHtml(str));
-        Helper helper = new Helper();
-        formatDate = helper.formatDate(mYear, mMonth, mDay);
+
+        formatDate = Helper.formatDate(mYear, mMonth, mDay);
 
         //select entry by date
         mEntries = EntryTable.selectByDate(db, formatDate);
         ListView entryList = mInflateView.findViewById(R.id.entryList);
-        final EntryAdapter entryAdapter = new EntryAdapter(getActivity().getApplicationContext(), R.layout.list_item, mEntries);
+        final EntryAdapter entryAdapter = new EntryAdapter(getActivity(), R.layout.list_item, mEntries);
         entryList.setAdapter(entryAdapter);
     }
 

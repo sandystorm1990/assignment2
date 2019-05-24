@@ -36,7 +36,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private int entryId = 0, moodLevel = 0;
     private String selectedMood, selectedDate;
 
-    //public static Entry mEntry;
+    public static Entry mEntry = new Entry();
     private String selectedActivity, selectedDescrioption, selectedLocation, selectedMedia, selectedWeather;
 
     @Override
@@ -65,6 +65,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             public void onClick(View v) {
                 performInitData();
                 Intent intent = new Intent(DetailActivity.this, CreateActivity.class);
+                mEntry.setmId(entryId);
+                mEntry.setmMoodLevel(moodLevel);
+                mEntry.setmMood(selectedMood);
+                CreateActivity.mEntry = mEntry;
+
                 startActivity(intent);
             }
         });
@@ -236,6 +241,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         } else {
             EntryTable.insert(db, entry);
         }
+        CreateActivity.mEntry = entry;
     }
 
     //

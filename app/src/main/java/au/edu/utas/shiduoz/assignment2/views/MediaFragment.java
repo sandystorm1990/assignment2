@@ -26,19 +26,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import au.edu.utas.shiduoz.assignment2.R;
+import au.edu.utas.shiduoz.assignment2.utils.Helper;
 
 public class MediaFragment extends Fragment {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_SHARE_IMAGE = 2;
 
-//    public final static int SELECT_IMAGE_RESULT_CODE = 200;
-//
-//    private SelectPicPopupWindow menuWindow;
+    //   private SelectPicPopupWindow menuWindow;
     TextView uploadBtn;
     public MediaFragment() {}
     private View mView;
-    private ImageView mImageView;
+    ImageView mImageView;
 
     public static String mCurrentPhotoPath="";
     @Nullable
@@ -48,10 +47,10 @@ public class MediaFragment extends Fragment {
 
         //edit
         Log.d("path", mCurrentPhotoPath.length()+"asdf");
-        if (mCurrentPhotoPath.length() > 1) {
+        if (mCurrentPhotoPath.length() > 1 && mCurrentPhotoPath != null) {
 
-            mImageView = mView.findViewById(R.id.itemMedia);
-            setPic(mImageView, mCurrentPhotoPath);
+            mImageView = inflateView.findViewById(R.id.itemMedia);
+            Helper.setPic(mImageView, mCurrentPhotoPath);
         }
 
         uploadBtn = inflateView.findViewById(R.id.uploadBtn);
@@ -61,10 +60,8 @@ public class MediaFragment extends Fragment {
                 requestToTakeAPicture();
             }
         });
-//        // set as true，when configuration change，fragment instance will not be recreated
-//        setRetainInstance(true);
+        // set as true，when configuration change，fragment instance will not be recreated
         mView = inflateView;
-//        detailActivity = getActivity();
 
         return inflateView;
         //return super.onCreateView(inflater, container, savedInstanceState);
@@ -84,17 +81,7 @@ public class MediaFragment extends Fragment {
     //step 4
     public void requestToTakeAPicture()
     {
-//        ActivityCompat.requestPermissions(getActivity(),
-//                new String[]{Manifest.permission.CAMERA},
-//                REQUEST_IMAGE_CAPTURE);
         MediaFragment.this.requestPermissions(new String[]{Manifest.permission.CAMERA},1);
-//        int flag = ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA);
-//        Log.d("camera", flag+"");
-//        if (flag != PackageManager.PERMISSION_GRANTED){
-//            MediaFragment.this.requestPermissions(new String[]{Manifest.permission.CAMERA},1);
-//            //shouldShowRequestPermissionRationale(Manifest.permission.CAMERA);
-//            Log.d("camera", "request");
-//        }
     }
 
     //step 5
@@ -111,6 +98,7 @@ public class MediaFragment extends Fragment {
                     // permission was granted, yay!
                     takeAPicture();
                 } else {
+                    Log.d("camera", "deny");
                     // permission denied, boo!
                 }
         }
@@ -187,7 +175,7 @@ public class MediaFragment extends Fragment {
         // Get the dimensions of the bitmap
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(getmImagePath(), bmOptions);
+        BitmapFactory.decodeFile(path, bmOptions);
         int photoW = bmOptions.outWidth;
         int photoH = bmOptions.outHeight;
 

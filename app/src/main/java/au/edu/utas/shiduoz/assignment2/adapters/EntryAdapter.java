@@ -15,15 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.util.List;
 
 import au.edu.utas.shiduoz.assignment2.R;
 import au.edu.utas.shiduoz.assignment2.data.Database;
 import au.edu.utas.shiduoz.assignment2.data.EntryTable;
 import au.edu.utas.shiduoz.assignment2.models.Entry;
-import au.edu.utas.shiduoz.assignment2.views.MainActivity;
+import au.edu.utas.shiduoz.assignment2.utils.Helper;
 
 public class EntryAdapter extends ArrayAdapter<Entry> {
     private int mLayoutResourceID;
@@ -33,6 +33,10 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
 
     private TextView removeItem, shareItem;
     AlertDialog.Builder builder;
+
+    LinearLayout ll;
+    //ViewGroup.LayoutParams lp;
+    static final int REQUEST_SHARE_IMAGE = 2;
 
     public EntryAdapter(Context context, int resource, List<Entry> objects)
     {
@@ -49,6 +53,7 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         LayoutInflater layoutInflater =
                 (LayoutInflater)getContext().getSystemService(Service.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(mLayoutResourceID, parent, false);
+        ll = row.findViewById(R.id.imgeParent);
 
         builder = new AlertDialog.Builder(mContext);
 
@@ -62,7 +67,7 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         TextView itemLocation = row.findViewById(R.id.itemLocation);
         TextView itemDescription = row.findViewById(R.id.itemDesc);
         TextView itemActivity = row.findViewById(R.id.itemActivity);
-        ImageView itemMedia = row.findViewById(R.id.itemImage);
+        //ImageView itemMedia = row.findViewById(R.id.itemImage);
         itemDate.setText(entry.getmUpdate());
         //itemLevel.setText(entry.getmMoodLevel()+"");
         getMoodLevelIcon(itemLevel, entry.getmMoodLevel());
@@ -87,9 +92,12 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
             itemActivity.setText(activity);
             getActivityIcon(itemActivity, activity);
         }
-        String media = entry.getmMedia();
-        if (media != null) {
-            //itemMedia
+        String media = entry.getmMedia(); Log.d("media", media+"zzsd");
+        if (media != null && media.length() > 1) {
+            ImageView image = new ImageView(getContext());
+            //image.setLayoutParams(new LayoutParams(lp.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+            ll.addView(image);
+            Helper.showPic(ll, image, media);
         }
 
         removeItem = row.findViewById(R.id.itemRemove);
@@ -120,19 +128,36 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
 //                        getContext().startActivity(intent);
                     }
                 });
+
                 builder.create().show();
+                //builder.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE);
+                //builder.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+
                 //Log.d("zsd","remove"+entry.getmId());
             }
         });
         shareItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // todo share action
+                // share action
+                shareEntry(entry);
                 Log.d("zsd","share");
             }
         });
 
         return  row;
+    }
+
+    void shareEntry(Entry entry)
+    {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Date: "+entry.getmDate()+";Mood: "+entry.getmMood()+"; Level:"+entry.getmMoodLevel());
+        //shareIntent.setType("image/jpeg");
+        shareIntent.setType("text/plain");
+        getContext().startActivity(Intent.createChooser(shareIntent, "Share Via..."));
+
+
     }
 
     //

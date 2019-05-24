@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,16 +28,24 @@ public class DescriptionFragment extends Fragment {
         Log.d("ttt", "zzz");
 
         editDescription = inflateView.findViewById(R.id.editDescription);
-        confirmBtn = inflateView.findViewById(R.id.descConfirmBtn);
-        confirmBtn.setOnClickListener(new View.OnClickListener() {
+        editDescription.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                //mDescription = editDescription.getText().toString();
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
                 setmDescription(editDescription.getText().toString());
+                editDescription.setText(getmDescription());
+                Log.d("ttt", editDescription.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                setmDescription(editDescription.getText().toString());
+                editDescription.setText(getmDescription());
                 Log.d("ttt", editDescription.getText().toString());
             }
         });
-        editDescription.setText(getmDescription());
 
         return inflateView;
         //return super.onCreateView(inflater, container, savedInstanceState);

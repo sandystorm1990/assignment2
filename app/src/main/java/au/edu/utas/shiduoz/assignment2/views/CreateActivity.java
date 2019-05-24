@@ -40,7 +40,7 @@ public class CreateActivity extends AppCompatActivity {
 
     public static int entryId = 0;
 
-    public static Entry mEntry;
+    public static Entry mEntry = new Entry();
 
 
     // mood level
@@ -58,7 +58,7 @@ public class CreateActivity extends AppCompatActivity {
         Intent intent = getIntent();
         entryId = intent.getIntExtra("id", 0);
         if (entryId > 0) {
-            initData(mEntry);
+            initData();
         }
 //        String str="";
 //        Log.d("zsd", str.length()+"");
@@ -97,8 +97,7 @@ public class CreateActivity extends AppCompatActivity {
         //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
         dateInputCreate.setText(new StringBuffer().append(t2));
         // format date
-        Helper helper = new Helper();
-        selectedDate = helper.formatDate(mYear, mMonth, mDay);
+        selectedDate = Helper.formatDate(mYear, mMonth, mDay);
         Log.d("ddd", selectedDate);
 
         selectDate.setOnClickListener(new View.OnClickListener() {
@@ -166,25 +165,25 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     //
-    public void initData(Entry entry)
+    public void initData()
     {
         //entryId = entry.getmId();
-        selectedMood = entry.getmMood();
-        selectedLevel = entry.getmMoodLevel();
-        selectedDate = entry.getmDate();
-        if (entry.getmWeather() == null) {
+        selectedMood = mEntry.getmMood();
+        selectedLevel = mEntry.getmMoodLevel();
+        selectedDate = mEntry.getmDate();
+        if (mEntry.getmWeather() == null) {
             mEntry.setmWeather("");
         }
-        if (entry.getmMedia() == null) {
+        if (mEntry.getmMedia() == null) {
             mEntry.setmMedia("");
         }
-        if (entry.getmDescription() == null) {
+        if (mEntry.getmDescription() == null) {
             mEntry.setmDescription("");
         }
-        if (entry.getmLocation() == null) {
+        if (mEntry.getmLocation() == null) {
             mEntry.setmLocation("");
         }
-        if (entry.getmActivity() == null) {
+        if (mEntry.getmActivity() == null) {
             mEntry.setmActivity("");
         }
     }
@@ -209,7 +208,7 @@ public class CreateActivity extends AppCompatActivity {
 //        today.setText(Html.fromHtml(str));
         // format date
         Helper helper = new Helper();
-        selectedDate = helper.formatDate(mYear, mMonth, mDay);
+        selectedDate = Helper.formatDate(mYear, mMonth, mDay);
         Log.d("ddd", selectedDate);
     }
 

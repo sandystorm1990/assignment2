@@ -39,13 +39,6 @@
                 android:singleLine="true"
                 android:textColorLink="@color/transparent" />
 
-            <Button
-                android:id="@+id/locationConfirmBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Confirm"
-                android:textAllCaps="false" />
         </LinearLayout>
 
         <com.google.android.gms.maps.MapView
