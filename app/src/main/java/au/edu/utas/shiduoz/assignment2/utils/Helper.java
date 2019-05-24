@@ -99,7 +99,12 @@ public class Helper {
         return sdf.format(selectedDate);
     }
 
-    //
+    /**
+     * string date to date
+     *
+     * @param str
+     * @return
+     */
     public static Date strToDate(String str)
     {
         SimpleDateFormat format = new SimpleDateFormat("EEE, YYYY-MM-DD");
@@ -207,7 +212,12 @@ public class Helper {
         return bitmap;
     }
 
-    //
+    /**
+     * calculate date by range
+     *
+     * @param range
+     * @return
+     */
     public static String calFromDate(String range)
     {
         String fromDate = "";

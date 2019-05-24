@@ -33,7 +33,6 @@ public class CreateActivity extends AppCompatActivity {
     TextView dateInputCreate, selectDate, closeBtn;
     int mYear, mMonth, mDay;
     final int DATE_DIALOG = 1;
-    final SpannableStringBuilder style = new SpannableStringBuilder();
 
     public static String selectedMood="", selectedDate="";
     public static int selectedLevel=0;
@@ -60,8 +59,6 @@ public class CreateActivity extends AppCompatActivity {
         if (entryId > 0) {
             initData();
         }
-//        String str="";
-//        Log.d("zsd", str.length()+"");
 
         // date select
         selectDate = findViewById(R.id.dateSelectCreate);
@@ -93,8 +90,6 @@ public class CreateActivity extends AppCompatActivity {
         }
 
         //Date selectDate = sdf.parse(mYear+"-"+mMonth+"-"+mDay);
-        //dateInputCreate.setText(new StringBuffer().append(t2));
-        //selectDate.setText(Html.fromHtml("<u>"+t2+"</u>"));
         dateInputCreate.setText(new StringBuffer().append(t2));
         // format date
         selectedDate = Helper.formatDate(mYear, mMonth, mDay);
@@ -122,7 +117,7 @@ public class CreateActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // todo create or save operation
+                // create or save operation
                 if (createEntry(false, entryId)) {
                     Intent intent = new Intent(CreateActivity.this, DetailActivity.class);
                     // pass data to next activity
@@ -149,7 +144,7 @@ public class CreateActivity extends AppCompatActivity {
         saveGoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // todo create or save operation
+                // create or save operation
                 if (createEntry(true, entryId)) {
                     Intent intent = new Intent(CreateActivity.this, MainActivity.class);
                     startActivity(intent);
@@ -164,7 +159,6 @@ public class CreateActivity extends AppCompatActivity {
         trigMood();
     }
 
-    //
     public void initData()
     {
         //entryId = entry.getmId();
@@ -223,7 +217,6 @@ public class CreateActivity extends AppCompatActivity {
         }
     };
 
-    //
     private boolean createEntry(boolean tag, int id)
     {
         //Log.d("qqq", selectedDate.length()+"");
@@ -238,7 +231,7 @@ public class CreateActivity extends AppCompatActivity {
         };
         // check date is selected or not
         if (selectedDate.length() == 0) {
-            builder.setMessage("Please choose date");
+            builder.setMessage("Please choose the date");
             builder.setNegativeButton("OK",dialogClickListener);
             AlertDialog dialog = builder.create();
             dialog.show();
@@ -246,7 +239,7 @@ public class CreateActivity extends AppCompatActivity {
         }
         // check mood level is selected or not
         if (selectedLevel == 0) {
-            builder.setMessage("Please choose mood level");
+            builder.setMessage("Please choose your mood number from 1 to 5");
             builder.setNegativeButton("OK",dialogClickListener);
             AlertDialog dialog = builder.create();
             dialog.show();
@@ -255,7 +248,7 @@ public class CreateActivity extends AppCompatActivity {
 
         // check mood is selected or not
         if (selectedMood.length() == 0) {
-            builder.setMessage("Please choose mood");
+            builder.setMessage("Please choose your mood");
             builder.setNegativeButton("OK",dialogClickListener);
             AlertDialog dialog = builder.create();
             dialog.show();
@@ -348,7 +341,6 @@ public class CreateActivity extends AppCompatActivity {
         selectedLevel = 0;
     }
 
-    //
     private void selectMood() {
         moodHappy = findViewById(R.id.moodHappy);
         moodSmile = findViewById(R.id.moodSmile);

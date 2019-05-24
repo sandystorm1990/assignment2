@@ -49,7 +49,6 @@ public class Entry {
         this.mUpdate = update;
     }
 
-    //
     public int getmId()
     {
         return this.mId;

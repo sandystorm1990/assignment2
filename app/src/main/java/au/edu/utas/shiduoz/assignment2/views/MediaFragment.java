@@ -31,9 +31,7 @@ import au.edu.utas.shiduoz.assignment2.utils.Helper;
 public class MediaFragment extends Fragment {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    static final int REQUEST_SHARE_IMAGE = 2;
 
-    //   private SelectPicPopupWindow menuWindow;
     TextView uploadBtn;
     public MediaFragment() {}
     private View mView;

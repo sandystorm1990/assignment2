@@ -62,10 +62,6 @@ public class Database {
 
             db.execSQL(EntryTable.CREATE_STATEMENT);
             Log.d(TAG, "DatabasesHelper onCreate");
-
-
-
-
         }
 
         //This code is called if the version number changes

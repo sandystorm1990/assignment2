@@ -23,18 +23,32 @@ import au.edu.utas.shiduoz.assignment2.data.Database;
 import au.edu.utas.shiduoz.assignment2.data.EntryTable;
 import au.edu.utas.shiduoz.assignment2.models.Entry;
 import au.edu.utas.shiduoz.assignment2.utils.Helper;
+
+/*
+ * HelloCharts
+ * Copyright 2014 Leszek Wach
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * github: https://github.com/lecho/hellocharts-android
+ */
 import lecho.lib.hellocharts.gesture.ZoomType;
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
-import lecho.lib.hellocharts.model.ChartData;
-import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.Line;
 import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.ValueShape;
-import lecho.lib.hellocharts.model.Viewport;
-import lecho.lib.hellocharts.util.ChartUtils;
-import lecho.lib.hellocharts.view.Chart;
 import lecho.lib.hellocharts.view.LineChartView;
 
 public class StatFragment extends Fragment {
@@ -74,10 +88,6 @@ public class StatFragment extends Fragment {
         dbConn = new Database(getActivity());
         db = dbConn.open();
 
-        //In most cased you can call data model methods in builder-pattern-like manner.
-
-
-
         return inflatedView;
         //return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -106,24 +116,15 @@ public class StatFragment extends Fragment {
         for (Entry entry: mEntries
              ) {
             points.add(new PointValue(++count, (float) entry.getmMoodLevel()));
-            axisValuesX.add(new AxisValue(count).setValue(count).setLabel(entry.getmMood()));
-            //axisValuesY.add(new AxisValue(count).setValue(count).setLabel(""+entry.getmMoodLevel()));
+            axisValuesX.add(new AxisValue(count).setValue(count).setLabel(entry.getmDate().substring(5,10)+":"+entry.getmMood()));
 
         }
         axisX.setValues(axisValuesX);
-        //axisY.setValues(axisValuesY);
-//        points.add(new PointValue(3, 0));
-//        points.add(new PointValue(2, 2));
-//        points.add(new PointValue(1, 3));
-//        points.add(new PointValue(0, 4));
-//        points.add(new PointValue(4, 2));
-//        points.add(new PointValue(5, 5));
-//        points.add(new PointValue(6, 4));
-
 
         line = new Line(points);
         // set line color
         line.setColor(Color.BLUE);
+        // set line to straight, true is curved
         line.setCubic(false);
         line.setHasLabels(true);
         // set shape of data point
@@ -140,7 +141,7 @@ public class StatFragment extends Fragment {
         lineChartData.setAxisXBottom(axisX);
         lineChartData.setAxisYLeft(axisY);
 
-        axisX.setName("Mood");
+        axisX.setName("Mood");//axisX.setTextSize(12);axisY.setTextSize(12);
         axisX.setHasLines(true);
         axisY.setHasLines(true);
         axisX.setTextColor(Color.BLACK);
@@ -153,12 +154,6 @@ public class StatFragment extends Fragment {
 
     private void setAxisValues()
     {
-//        ArrayList<AxisValue> axisValuesX = new ArrayList<AxisValue>();//定义X轴刻度值的数据集合
-//        for (int i = 0; i < 15; i++) {
-//            axisValuesX.add(new AxisValue(i).setValue(i).setLabel(i+""));
-//        }
-//        axisX.setValues(axisValuesX);//为X轴显示的刻度值设置数据集合
-        //axisValuesY = new ArrayList<AxisValue>();//定义Y轴刻度值的数据集合
         for (int i = 0; i <= 5; i++) {
             axisValuesY.add(new AxisValue(i).setValue(i).setLabel(i + ""));
         }

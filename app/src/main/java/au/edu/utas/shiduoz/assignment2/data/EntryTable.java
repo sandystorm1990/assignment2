@@ -206,7 +206,7 @@ public class EntryTable {
     public static ArrayList<Entry> selectByRange(SQLiteDatabase db, String fromDate, String toDate)
     {
         ArrayList<Entry> results = new ArrayList<Entry>();
-        Cursor c = db.query(TABLE_NAME, null, KEY_DATE+" BETWEEN '"+fromDate+"' AND '"+toDate+"'", null, null, null, null);
+        Cursor c = db.query(TABLE_NAME, null, KEY_DATE+" BETWEEN '"+fromDate+"' AND '"+toDate+"'", null, null, null, KEY_DATE);
         if (c != null) {
             c.moveToFirst();
             while (!c.isAfterLast()) {

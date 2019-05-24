@@ -33,7 +33,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:textSize="18sp" />
+                android:textSize="24sp"
+                android:typeface="serif"
+                app:fontFamily="sans-serif-black" />
 
             <TextView
                 android:id="@+id/dateSelect"

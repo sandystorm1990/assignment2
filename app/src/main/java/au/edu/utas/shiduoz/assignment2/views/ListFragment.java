@@ -9,16 +9,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,13 +36,8 @@ public class ListFragment extends Fragment {
     int mYear, mMonth, mDay;
 
     TextView selectedDate, dateInput;
-    //Button btn;
-    final SpannableStringBuilder style = new SpannableStringBuilder();
 
-    private TextView textView;
-    public ListFragment() {
-        //textView = getView().findViewById()
-    }
+    public ListFragment() { }
 
     private View mInflateView;
     private String formatDate;
@@ -59,14 +51,10 @@ public class ListFragment extends Fragment {
         final View inflateView = inflater.inflate(R.layout.fragment_list, container, false);
 
         mInflateView = inflateView;
-        //textView = inflateView.findViewById(R.id.testText);
-        //textView.setText("This is the list fragment");
 
-        //datetime dialog
         //date shown in home page
         selectedDate = (TextView) inflateView.findViewById(R.id.dateSelect);
         dateInput = inflateView.findViewById(R.id.dateInput);
-        //btn = (Button) inflateView.findViewById(R.id.dateBtn);
 
         // get current date
         final Calendar ca = Calendar.getInstance();
@@ -108,8 +96,6 @@ public class ListFragment extends Fragment {
                 }
             });
             builder.create().show();
-            //builder.getContext().getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE);
-            //builder.getContext().getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
         }
         for (Entry entry: mEntries
         ) {
@@ -136,8 +122,6 @@ public class ListFragment extends Fragment {
         selectedDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-//                DialogFragment dateFragment = new SelectDateFragment();
-//                dateFragment.show(getFragmentManager(), "DatePicker");
                 // show date dialog
                 DatePickerDialog d = new DatePickerDialog(getActivity(), mdateListener, mYear, mMonth, mDay);
                 d.show();

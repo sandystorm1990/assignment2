@@ -43,7 +43,6 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         super(context, resource, objects);
         this.mLayoutResourceID = resource;
         this.mContext = context;
-
     }
 
     @NonNull
@@ -55,6 +54,7 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         View row = layoutInflater.inflate(mLayoutResourceID, parent, false);
         ll = row.findViewById(R.id.imgeParent);
 
+        // alert dialog
         builder = new AlertDialog.Builder(mContext);
 
         final Entry entry = this.getItem(position);
@@ -102,6 +102,7 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
 
         removeItem = row.findViewById(R.id.itemRemove);
         shareItem = row.findViewById(R.id.itemShare);
+        // remove action
         removeItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,6 +137,7 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
                 //Log.d("zsd","remove"+entry.getmId());
             }
         });
+        // share action
         shareItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +150,12 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         return  row;
     }
 
-    void shareEntry(Entry entry)
+    /**
+     * share entry to...
+     *
+     * @param entry
+     */
+    private void shareEntry(Entry entry)
     {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
@@ -156,11 +163,8 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         //shareIntent.setType("image/jpeg");
         shareIntent.setType("text/plain");
         getContext().startActivity(Intent.createChooser(shareIntent, "Share Via..."));
-
-
     }
 
-    //
     private void getWeatherIcon(TextView textView, String weather)
     {
         switch (weather) {
@@ -205,7 +209,6 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
 
     }
 
-    //
     private void getMoodLevelIcon(TextView textView, int level)
     {
         switch (level) {
@@ -239,7 +242,6 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         }
     }
 
-    //
     private void getMoodIcon(TextView textView, String mood)
     {
         switch (mood) {
@@ -324,7 +326,6 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         }
     }
 
-    //
     private void getActivityIcon(TextView textView, String activity)
     {
         switch (activity) {

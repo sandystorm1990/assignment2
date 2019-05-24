@@ -221,7 +221,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         locationBtn.setTextColor(Color.BLACK);
     }
 
-    //
     private void createOrUpdateEntry()
     {
         Database databaseConnection = new Database(this);
@@ -244,7 +243,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         CreateActivity.mEntry = entry;
     }
 
-    //
     private void performInitData()
     {
 //        activityFragment.setmActivity(selectedActivity);

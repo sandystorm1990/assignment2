@@ -1,8 +1,6 @@
 package au.edu.utas.shiduoz.assignment2.views;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -11,16 +9,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import au.edu.utas.shiduoz.assignment2.R;
-import au.edu.utas.shiduoz.assignment2.data.Database;
 import au.edu.utas.shiduoz.assignment2.models.Entry;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-//    int mYear, mMonth, mDay;
-//    final int DATE_DIALOG = 1;
-//    TextView selectedDate;
-//    Button btn;
-//    final SpannableStringBuilder style = new SpannableStringBuilder();
 
     // ui object
     private TextView listTab;
@@ -36,10 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // connect to database
-//        Database databaseConnection = new Database(this);
-//        final SQLiteDatabase db = databaseConnection.open();
-
+        // get tabs
         listTab = findViewById(R.id.listTab);
         createTab = findViewById(R.id.createTab);
         statTab = findViewById(R.id.statTab);
@@ -90,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         fragmentTransaction.commit();
-
     }
 
     private void hideAllFragment(FragmentTransaction fragmentTransaction) {

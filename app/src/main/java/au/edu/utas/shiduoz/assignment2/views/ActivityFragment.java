@@ -19,8 +19,7 @@ public class ActivityFragment extends Fragment {
 
     public static String mActivity = "";
 
-    public ActivityFragment()
-    {}
+    public ActivityFragment() {}
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
