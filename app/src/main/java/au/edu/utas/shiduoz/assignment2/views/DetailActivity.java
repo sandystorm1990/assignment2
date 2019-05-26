@@ -1,5 +1,6 @@
 package au.edu.utas.shiduoz.assignment2.views;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -219,6 +221,13 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         descriptionBtn.setTextColor(Color.BLACK);
         mediaBtn.setTextColor(Color.BLACK);
         locationBtn.setTextColor(Color.BLACK);
+
+        // hide keyboard
+        View view  = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     private void createOrUpdateEntry()
