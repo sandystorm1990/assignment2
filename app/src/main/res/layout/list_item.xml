@@ -93,8 +93,8 @@
                 android:id="@+id/itemActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center|left"
+                android:layout_weight="3"
+                android:gravity="center|start|left"
                 android:textSize="24sp" />
 
             <TextView
@@ -103,7 +103,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:drawableRight="@mipmap/icon_remove"
-                android:gravity="center" />
+                android:gravity="center"
+                android:drawableEnd="@mipmap/icon_remove" />
 
             <TextView
                 android:id="@+id/itemShare"
@@ -112,7 +113,11 @@
                 android:layout_weight="1"
                 android:drawableRight="@mipmap/icon_share"
                 android:gravity="center"
-                android:paddingRight="15dp" />
+                android:paddingLeft="5dp"
+                android:paddingRight="15dp"
+                android:drawableEnd="@mipmap/icon_share"
+                android:paddingStart="5dp"
+                android:paddingEnd="15dp" />
         </LinearLayout>
 
     </LinearLayout>

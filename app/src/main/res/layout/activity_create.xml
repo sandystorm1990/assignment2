@@ -75,7 +75,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:drawableLeft="@mipmap/calender"
-                android:gravity="center" />
+                android:gravity="center"
+                android:drawableStart="@mipmap/calender" />
 
         </LinearLayout>
 
@@ -134,15 +135,19 @@
             <LinearLayout
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
                 android:orientation="vertical"
                 android:paddingLeft="15dp"
-                android:layout_marginStart="5dp">
+                android:paddingRight="5dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="5dp">
 
                 <TextView
                     android:id="@+id/moodAngry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_angry"
                     android:drawableLeft="@mipmap/icon_angry"
                     android:gravity="center"
                     android:text="@string/moodAngry" />
@@ -151,6 +156,7 @@
                     android:id="@+id/moodSmile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_happy"
                     android:drawableLeft="@mipmap/icon_happy"
                     android:gravity="center"
                     android:text="@string/moodSmile" />
@@ -159,6 +165,7 @@
                     android:id="@+id/moodHappy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_smile"
                     android:drawableLeft="@mipmap/icon_smile"
                     android:gravity="center"
                     android:text="@string/moodHappy" />
@@ -167,6 +174,7 @@
                     android:id="@+id/moodEmbarrassed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_embarrassed"
                     android:drawableLeft="@mipmap/icon_embarrassed"
                     android:gravity="center"
                     android:text="@string/moodEmbarrassed" />
@@ -175,6 +183,7 @@
                     android:id="@+id/moodIll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_ill"
                     android:drawableLeft="@mipmap/icon_ill"
                     android:gravity="center"
                     android:text="@string/moodIll" />
@@ -183,6 +192,7 @@
                     android:id="@+id/moodMad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_mad"
                     android:drawableLeft="@mipmap/icon_mad"
                     android:gravity="center"
                     android:text="@string/moodMad" />
@@ -191,6 +201,7 @@
                     android:id="@+id/moodSecret"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_secret"
                     android:drawableLeft="@mipmap/icon_secret"
                     android:gravity="center"
                     android:text="@string/moodSecret" />
@@ -199,6 +210,7 @@
                     android:id="@+id/moodSuspicious"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_suspicious"
                     android:drawableLeft="@mipmap/icon_suspicious"
                     android:gravity="center"
                     android:text="@string/moodSuspicious" />
@@ -208,14 +220,19 @@
             <LinearLayout
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
                 android:orientation="vertical"
-                android:paddingLeft="15dp">
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="5dp">
 
                 <TextView
                     android:id="@+id/moodBored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_bored"
                     android:drawableLeft="@mipmap/icon_bored"
                     android:gravity="center"
                     android:text="@string/moodBored" />
@@ -224,6 +241,7 @@
                     android:id="@+id/moodConfused"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_confused"
                     android:drawableLeft="@mipmap/icon_confused"
                     android:gravity="center"
                     android:text="@string/moodConfused" />
@@ -232,6 +250,7 @@
                     android:id="@+id/moodCrying"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_crying"
                     android:drawableLeft="@mipmap/icon_crying"
                     android:gravity="center"
                     android:text="@string/moodCrying" />
@@ -240,6 +259,7 @@
                     android:id="@+id/moodKissing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_kissing"
                     android:drawableLeft="@mipmap/icon_kissing"
                     android:gravity="center"
                     android:text="@string/moodKissing" />
@@ -248,6 +268,7 @@
                     android:id="@+id/moodLove"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_love"
                     android:drawableLeft="@mipmap/icon_love"
                     android:gravity="center"
                     android:text="@string/moodLove" />
@@ -256,6 +277,7 @@
                     android:id="@+id/moodNerd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_nerd"
                     android:drawableLeft="@mipmap/icon_nerd"
                     android:gravity="center"
                     android:text="@string/moodNerd" />
@@ -264,6 +286,7 @@
                     android:id="@+id/moodSmart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@mipmap/icon_smart"
                     android:drawableLeft="@mipmap/icon_smart"
                     android:gravity="center"
                     android:text="@string/moodSmart" />
@@ -289,6 +312,7 @@
 
         <Button
             android:id="@+id/addBtn"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -300,6 +324,7 @@
 
         <Button
             android:id="@+id/saveGoBtn"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
