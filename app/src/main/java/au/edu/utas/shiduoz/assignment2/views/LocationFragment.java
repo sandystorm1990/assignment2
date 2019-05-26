@@ -24,6 +24,7 @@ public class LocationFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View inflateView = inflater.inflate(R.layout.fragment_location, container, false);
         editLocation = inflateView.findViewById(R.id.locationFilter);
+        editLocation.setText(getmLocation());
         editLocation.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }

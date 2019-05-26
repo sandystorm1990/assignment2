@@ -26,6 +26,7 @@ public class DescriptionFragment extends Fragment {
         Log.d("ttt", "zzz");
 
         editDescription = inflateView.findViewById(R.id.editDescription);
+        editDescription.setText(getmDescription());
         editDescription.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
