@@ -32,16 +32,16 @@ public class DescriptionFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                setmDescription(editDescription.getText().toString());
-                editDescription.setText(getmDescription());
-                Log.d("ttt", editDescription.getText().toString());
+//                setmDescription(editDescription.getText().toString());
+//                editDescription.setText(getmDescription());
+//                Log.d("ttt", editDescription.getText().toString());
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                setmDescription(editDescription.getText().toString());
-                editDescription.setText(getmDescription());
-                Log.d("ttt", editDescription.getText().toString());
+                setmDescription(s.toString());
+                //editDescription.setText(getmDescription());
+                //Log.d("ttt", editDescription.getText().toString());
             }
         });
 

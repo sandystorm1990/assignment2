@@ -30,16 +30,16 @@ public class LocationFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                setmLocation(editLocation.getText().toString());
-                editLocation.setText(getmLocation());
-                Log.d("ttt-on", editLocation.getText().toString());
+                //setmLocation(editLocation.getText().toString());
+                //editLocation.setText(getmLocation());
+                //Log.d("ttt-on", editLocation.getText().toString());
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                setmLocation(editLocation.getText().toString());
-                editLocation.setText(getmLocation());
-                Log.d("ttt-after", editLocation.getText().toString());
+                setmLocation(s.toString());
+                //editLocation.setText(getmLocation());
+                //Log.d("ttt-after", editLocation.getText().toString());
             }
         });
 
