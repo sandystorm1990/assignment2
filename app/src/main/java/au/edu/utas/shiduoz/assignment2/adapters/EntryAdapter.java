@@ -36,18 +36,19 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
 
     LinearLayout ll;
     //ViewGroup.LayoutParams lp;
-    static final int REQUEST_SHARE_IMAGE = 2;
+    List<Entry> mEntries;
 
     public EntryAdapter(Context context, int resource, List<Entry> objects)
     {
         super(context, resource, objects);
         this.mLayoutResourceID = resource;
         this.mContext = context;
+        mEntries = objects;
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //return super.getView(position, convertView, parent);
         LayoutInflater layoutInflater =
                 (LayoutInflater)getContext().getSystemService(Service.LAYOUT_INFLATER_SERVICE);
@@ -125,8 +126,9 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
                         db = databaseConnection.open();
                         EntryTable.remove(db, entry.getmId());
                         Log.d("zsd","remove"+entry.getmId());
-//                        Intent intent = new Intent(getContext(), MainActivity.class);
-//                        getContext().startActivity(intent);
+                        mEntries.remove(position);
+
+                        notifyDataSetChanged();
                     }
                 });
 
