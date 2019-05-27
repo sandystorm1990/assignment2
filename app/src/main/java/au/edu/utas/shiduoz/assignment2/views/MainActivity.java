@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 CreateActivity.entryId = 0;
                 CreateActivity.selectedMood = "";
                 CreateActivity.selectedLevel = 0;
-                CreateActivity.selectedDate = "";
+                //CreateActivity.selectedDate = "";
                 startActivity(intent);
                 break;
         }

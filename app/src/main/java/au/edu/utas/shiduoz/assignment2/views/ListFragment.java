@@ -114,7 +114,8 @@ public class ListFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), CreateActivity.class);
                 // pass data to edit
                 CreateActivity.mEntry = entry;
-                intent.putExtra("id", entry.getmId());
+                CreateActivity.entryId = entry.getmId();
+                //intent.putExtra("id", entry.getmId());
                 startActivity(intent);
             }
         });

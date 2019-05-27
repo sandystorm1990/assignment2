@@ -35,7 +35,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     TextView detailTitle;
 
-    private int entryId = 0, moodLevel = 0;
+    public static int entryId = 0, moodLevel = 0;
     private String selectedMood, selectedDate;
 
     public static Entry mEntry = new Entry();
@@ -47,7 +47,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_detail);
 
         Intent intent = getIntent();
-        entryId = intent.getIntExtra("entryId", 0);
+        //entryId = intent.getIntExtra("entryId", 0);
         moodLevel = intent.getIntExtra("selectedLevel", 0);
         selectedMood = intent.getStringExtra("selectedMood");
         selectedDate = intent.getStringExtra("selectedDate");
@@ -58,6 +58,12 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             selectedLocation = intent.getStringExtra("selectedLocation");
             selectedWeather = intent.getStringExtra("selectedWeather");
             performInitData();
+        } else {
+            selectedActivity = "";
+            selectedDescrioption = "";
+            selectedMedia = "";
+            selectedLocation = "";
+            selectedWeather = "";
         }
 
         // back action
@@ -67,10 +73,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             public void onClick(View v) {
                 performInitData();
                 Intent intent = new Intent(DetailActivity.this, CreateActivity.class);
-                mEntry.setmId(entryId);
-                mEntry.setmMoodLevel(moodLevel);
-                mEntry.setmMood(selectedMood);
-                CreateActivity.mEntry = mEntry;
+//                mEntry.setmId(entryId);
+//                mEntry.setmMoodLevel(moodLevel);
+//                mEntry.setmMood(selectedMood);
+//                CreateActivity.mEntry = mEntry;
 
                 startActivity(intent);
             }

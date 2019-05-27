@@ -54,7 +54,7 @@ public class CreateActivity extends AppCompatActivity {
 
         // get data from list activity
         Intent intent = getIntent();
-        entryId = intent.getIntExtra("id", 0);
+        //entryId = intent.getIntExtra("id", 0);
         if (entryId > 0) {
             initData();
         }
@@ -122,13 +122,20 @@ public class CreateActivity extends AppCompatActivity {
                     // pass data to next activity
                     if (entryId > 0) {
                         //DetailActivity.mEntry = mEntry;
+                        DetailActivity.entryId = entryId;
                         intent.putExtra("selectedActivity", mEntry.getmActivity());
                         intent.putExtra("selectedDescription", mEntry.getmDescription());
                         intent.putExtra("selectedLocation", mEntry.getmLocation());
                         intent.putExtra("selectedMedia", mEntry.getmMedia());
                         intent.putExtra("selectedWeather", mEntry.getmWeather());
+                    } else {
+                        intent.putExtra("selectedActivity", "");
+                        intent.putExtra("selectedDescription", "");
+                        intent.putExtra("selectedLocation", "");
+                        intent.putExtra("selectedMedia", "");
+                        intent.putExtra("selectedWeather", "");
                     }
-                    intent.putExtra("entryId", entryId);
+
                     intent.putExtra("selectedDate", selectedDate);
                     intent.putExtra("selectedLevel", selectedLevel);
                     intent.putExtra("selectedMood", selectedMood);
